@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BlackboardComponent } from './blackboard/blackboard.component';
 
 const routes: Routes = [
-  {path: "blackboard", component: BlackBoard}
+  {path: 'blackboard', component: BlackboardComponent}
 ];
 
 @NgModule({

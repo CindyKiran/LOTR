@@ -8,19 +8,22 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {TodoFormComponent} from './todo-form/todo-form.component';
 import {TodoListComponent} from './todo-list/todo-list.component';
 import { RegisterComponent } from './register/register.component';
+import { BlackboardComponent } from './blackboard/blackboard.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoFormComponent,
-    RegisterComponent
+    RegisterComponent,
+    BlackboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
