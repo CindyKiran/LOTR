@@ -4,7 +4,9 @@ import {Observable, of} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Todo} from './Todo';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TodoServiceService {
 
   constructor(private http: HttpClient) { }

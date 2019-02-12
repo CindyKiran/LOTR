@@ -1,3 +1,15 @@
-<p>
-  register works!
-</p>
+<form [formGroup]="todoForm" (ngSubmit)="loginTodo($event)">
+  <div class="imgcontainer">
+    <h1>Register</h1>
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input formControlName="userName" type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input formControlName="passWord" type="password" placeholder="Enter Password" name="psw" required>
+    <button (click)="saveTodo()">Register</button>
+  </div>
+
+</form>
