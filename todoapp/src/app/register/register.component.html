@@ -1,9 +1,12 @@
-<form [formGroup]="todoForm" (ngSubmit)="loginTodo($event)">
+<form [formGroup]="todoForm" (ngSubmit)="saveTodo($event)">
   <div class="imgcontainer">
     <h1>Register</h1>
   </div>
 
   <div class="container">
+    <label for="fName"><b>First name</b></label>
+    <input formControlName="firstName" type="text" placeholder="Enter First Name" name="fName" required>
+
     <label for="uname"><b>Username</b></label>
     <input formControlName="userName" type="text" placeholder="Enter Username" name="uname" required>
 

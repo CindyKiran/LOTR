@@ -37,8 +37,9 @@ export class TodoFormComponent implements OnInit {
 
     const userName = this.todoForm.controls['userName'].value;
     const passWord = this.todoForm.controls['passWord'].value;
+    const firstName = this.todoForm.controls['firstName'].value;
 
-    this.todoService.authenticate(new Todo(0, userName, passWord)).subscribe(result => {
+    this.todoService.authenticate(new Todo(0, firstName, userName, passWord)).subscribe(result => {
       console.log(result)
       if(result == true){
         this.router.navigate(['blackboard'])

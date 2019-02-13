@@ -17,7 +17,8 @@ export class RegisterComponent implements OnInit {
 
   public todoForm = this.fb.group({
     userName: ['', Validators.required],
-    passWord: ['', Validators.required]
+    passWord: ['', Validators.required],
+    firstName:  ['', Validators.required]
   });
 
   ngOnInit() {
@@ -27,8 +28,9 @@ export class RegisterComponent implements OnInit {
 
     const userName = this.todoForm.controls['userName'].value;
     const passWord = this.todoForm.controls['passWord'].value;
+    const firstName = this.todoForm.controls['firstName'].value;
 
-    this.todoService.saveUser(new Todo(0, userName, passWord)).subscribe(
+    this.todoService.saveUser(new Todo(0, firstName, userName, passWord)).subscribe(
     );
   }
 
