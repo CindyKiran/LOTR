@@ -64,3 +64,11 @@ form {
       float: none;
     }
   }
+
+  .visible {
+    color: black;
+ }
+
+ p{
+   color:white;
+ }

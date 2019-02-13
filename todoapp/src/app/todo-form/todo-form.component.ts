@@ -26,14 +26,7 @@ export class TodoFormComponent implements OnInit {
 
   ngOnInit() {
   }
-  // public saveTodo() {
 
-  //   const userName = this.todoForm.controls['userName'].value;
-  //   const passWord = this.todoForm.controls['passWord'].value;
-
-  //   this.todoService.saveUser(new Todo(0, userName, passWord)).subscribe();
-
-  // }
   public loginTodo(event) {
 
     const userName = this.todoForm.controls['userName'].value;
@@ -44,9 +37,13 @@ export class TodoFormComponent implements OnInit {
       console.log(result)
       if(result == true){
         this.router.navigate(['blackboard'])
-      } 
+      } else if(result == false){
+        this.router.navigate([''])
+        this.redError = true;
+      }
     }
     );
-
   }
+
+  redError: boolean = false;
 }

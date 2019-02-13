@@ -64,3 +64,11 @@ form {
       float: none;
     }
   }
+
+  .red {
+     color: red;
+  }
+
+  p{
+    color:white;
+  }

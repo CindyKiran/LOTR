@@ -10,6 +10,7 @@ import {TodoListComponent} from './todo-list/todo-list.component';
 import { RegisterComponent } from './register/register.component';
 import { BlackboardComponent } from './blackboard/blackboard.component';
 import { RouterModule } from '@angular/router';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     TodoListComponent,
     TodoFormComponent,
     RegisterComponent,
-    BlackboardComponent
+    BlackboardComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

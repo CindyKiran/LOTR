@@ -23,15 +23,27 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+  regSuccess: boolean = false;
+
 
   public saveTodo() {
 
+    
     const userName = this.todoForm.controls['userName'].value;
     const passWord = this.todoForm.controls['passWord'].value;
     const firstName = this.todoForm.controls['firstName'].value;
 
-    this.todoService.saveUser(new Todo(0, firstName, userName, passWord)).subscribe(
-    );
+      this.regSuccess =true;
+
+      if(userName.length == 0 || passWord.length ==0 || firstName ==0){
+        console.log("error!!!")
+      } else{
+        this.todoService.saveUser(new Todo(0, firstName, userName, passWord)).subscribe(
+          );
+      }
+
   }
 
+
+ 
 }
