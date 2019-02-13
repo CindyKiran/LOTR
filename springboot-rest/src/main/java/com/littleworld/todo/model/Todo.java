@@ -15,11 +15,13 @@ public class Todo {
 
   String userName;
   String passWord;
+  String firstName;
 
   public Todo() {}
 
-  public Todo(int id, String task, String passWord) {
+  public Todo(int id, String firstName, String task, String passWord) {
     this.id = id;
+    this.firstName = firstName;
     this.userName = task;
     this.passWord = passWord;
   }
@@ -35,6 +37,14 @@ public class Todo {
 
   public void setPassWord(String passWord) {
     this.passWord = passWord;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   @Override

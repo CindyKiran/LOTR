@@ -20,7 +20,8 @@ export class TodoFormComponent implements OnInit {
 
   public todoForm = this.fb.group({
     userName: ['', Validators.required],
-    passWord: ['', Validators.required]
+    passWord: ['', Validators.required],
+    firstName:  ['', Validators.required]
   });
 
   ngOnInit() {
