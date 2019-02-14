@@ -20,7 +20,8 @@ export class TodoFormComponent implements OnInit {
     lastName:  ['', Validators.required],
     userName: ['', Validators.required],
     passWord: ['', Validators.required],
-    place:  ['', Validators.required]
+    place:  ['', Validators.required],
+    creature: ['', Validators.required]
   });
 
   ngOnInit() {
@@ -35,8 +36,9 @@ export class TodoFormComponent implements OnInit {
     const userName = this.todoForm.controls['userName'].value;
     const passWord = this.todoForm.controls['passWord'].value;
     const place = this.todoForm.controls['place'].value;
+    const creature = this.todoForm.controls['creature'].value;
 
-    this.todoService.authenticate(new Todo(0, firstName, lastName, userName, passWord, place)).subscribe(result => {
+    this.todoService.authenticate(new Todo(0, firstName, lastName, userName, passWord, place, creature)).subscribe(result => {
         console.log(result)
         if (result == true) {
           this.router.navigate(['blackboard'])

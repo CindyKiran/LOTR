@@ -11,7 +11,6 @@ export class TodoServiceService {
 
   constructor(private http: HttpClient) { }
 
-
   findAll(): Observable<Todo[]>  {
     return this.http.get<any>('http://localhost:8080/todo').pipe(
       catchError(this.handleError<Todo>(`findAll`))
@@ -22,20 +21,17 @@ export class TodoServiceService {
     return this.http.post('http://localhost:8080/todo', todo).pipe(
       catchError(this.handleError<Todo>(`saveUser`))
     );
-
   }
 
   authenticate(todo: Todo) {
     return this.http.post('http://localhost:8080/authenticate', todo).pipe(
       catchError(this.handleError<Todo>(`saveUser`))
     );
-
   }
   delete(id) {
     return this.http.delete('http://localhost:8080/todo/' + id).pipe(
       catchError(this.handleError<Todo>(`delete`))
-  );
-
+    );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
