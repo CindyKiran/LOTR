@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   regSuccess: boolean = false;
-
+  emptyBoxes: boolean = false;
 
   public saveTodo() {
 
@@ -33,13 +33,14 @@ export class RegisterComponent implements OnInit {
     const passWord = this.todoForm.controls['passWord'].value;
     const firstName = this.todoForm.controls['firstName'].value;
 
-      this.regSuccess =true;
 
       if(userName.length == 0 || passWord.length ==0 || firstName ==0){
         console.log("error!!!")
+        this.emptyBoxes = true;
       } else{
         this.todoService.saveUser(new Todo(0, firstName, userName, passWord)).subscribe(
           );
+        this.regSuccess =true;
       }
 
   }
