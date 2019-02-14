@@ -12,38 +12,39 @@ import { Router } from '@angular/router';
   providers:  [TodoServiceService]
 })
 export class TodoFormComponent implements OnInit {
-
-  
-
   constructor(public fb: FormBuilder, private todoService: TodoServiceService, private router: Router) {
   }
 
   public todoForm = this.fb.group({
+    firstName:  ['', Validators.required],
+    lastName:  ['', Validators.required],
     userName: ['', Validators.required],
     passWord: ['', Validators.required],
-    firstName:  ['', Validators.required]
+    place:  ['', Validators.required]
   });
 
   ngOnInit() {
   }
 
+  redError: boolean = false;
+
   public loginTodo(event) {
 
+    const firstName = this.todoForm.controls['firstName'].value;
+    const lastName = this.todoForm.controls['lastName'].value;
     const userName = this.todoForm.controls['userName'].value;
     const passWord = this.todoForm.controls['passWord'].value;
-    const firstName = this.todoForm.controls['firstName'].value;
+    const place = this.todoForm.controls['place'].value;
 
-    this.todoService.authenticate(new Todo(0, firstName, userName, passWord)).subscribe(result => {
-      console.log(result)
-      if(result == true){
-        this.router.navigate(['blackboard'])
-      } else if(result == false){
-        this.router.navigate([''])
-        this.redError = true;
+    this.todoService.authenticate(new Todo(0, firstName, lastName, userName, passWord, place)).subscribe(result => {
+        console.log(result)
+        if (result == true) {
+          this.router.navigate(['blackboard'])
+        } else if (result == false) {
+          this.router.navigate([''])
+          this.redError = true;
+        }
       }
-    }
     );
   }
-
-  redError: boolean = false;
 }

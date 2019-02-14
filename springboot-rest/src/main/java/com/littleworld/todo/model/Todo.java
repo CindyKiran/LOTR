@@ -12,44 +12,44 @@ public class Todo {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   int id;
-
+  String firstName;
+  String lastName;
   String userName;
   String passWord;
-  String firstName;
+  String place;
 
   public Todo() {}
 
-  public Todo(int id, String firstName, String task, String passWord) {
+  public Todo(int id, String firstName, String lastName, String userName, String passWord, String place) {
     this.id = id;
     this.firstName = firstName;
-    this.userName = task;
+    this.lastName = lastName;
+    this.userName = userName;
     this.passWord = passWord;
+    this.place = place;
   }
 
   public int getId() { return id; }
-  public void setId(int id)  { this.id = id; } 
+  public void setId(int id)  { this.id = id; }
+
+  public String getFirstName() { return firstName; }
+  public void setFirstName(String firstName) { this.firstName = firstName; }
+
+  public String getLastName() { return lastName; }
+  public void setLastName(String lastName) { this.firstName = lastName; }
+
   public String getUserName() { return userName; }
-  public void setUserName(String task)  { this.userName = task; }
+  public void setUserName(String userName)  { this.userName = userName; }
 
   public String getPassWord() {
     return passWord;
   }
-
   public void setPassWord(String passWord) {
     this.passWord = passWord;
   }
 
-  public String getFirstName() {
-    return firstName;
-  }
+  public String getPlace() { return place; }
+  public void setPlace(String place) { this.place = place; }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  @Override
-  public String toString() {
-    return "[Todo: [" + "id: " + id + ", " + "task: " + userName + "]"; 
-  }
 }
 

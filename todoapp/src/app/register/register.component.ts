@@ -16,35 +16,34 @@ export class RegisterComponent implements OnInit {
   constructor(public fb: FormBuilder, private todoService: TodoServiceService) {}
 
   public todoForm = this.fb.group({
+    firstName:  ['', Validators.required],
+    lastName:  ['', Validators.required],
     userName: ['', Validators.required],
     passWord: ['', Validators.required],
-    firstName:  ['', Validators.required]
+    place:  ['', Validators.required]
   });
 
   ngOnInit() {
   }
+
   regSuccess: boolean = false;
   emptyBoxes: boolean = false;
 
   public saveTodo() {
 
-    
+    const firstName = this.todoForm.controls['firstName'].value;
+    const lastName = this.todoForm.controls['lastName'].value;
     const userName = this.todoForm.controls['userName'].value;
     const passWord = this.todoForm.controls['passWord'].value;
-    const firstName = this.todoForm.controls['firstName'].value;
-
+    const place = this.todoForm.controls['place'].value;
 
       if(userName.length == 0 || passWord.length ==0 || firstName ==0){
         console.log("error!!!")
         this.emptyBoxes = true;
       } else{
-        this.todoService.saveUser(new Todo(0, firstName, userName, passWord)).subscribe(
+        this.todoService.saveUser(new Todo(0, firstName, lastName, userName, passWord, place)).subscribe(
           );
         this.regSuccess =true;
       }
-
   }
-
-
- 
 }

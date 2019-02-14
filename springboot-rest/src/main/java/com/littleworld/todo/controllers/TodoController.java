@@ -29,15 +29,12 @@ public class TodoController {
     List<Todo> lijst = (List<Todo>) todoService.findByUserNameAndPassWord(todo.getUserName(), todo.getPassWord());
     return !lijst.isEmpty();
   }
-
-
   //curl -H "Content-Type: application/json" -X PUT -d '{"id": 1, "task": "taskTest"}' http://localhost:8080/todo/1
   @ResponseBody
   @RequestMapping(value = "/todo/{id}", method = RequestMethod.PUT)
   public int updateTodo(@PathVariable  int id, @RequestBody Todo todo) {
     return todoService.save(todo).getId();
   }
-
   //curl -X DELETE http://localhost:8080/todo/1
   @ResponseStatus(value = HttpStatus.OK)
   @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)
