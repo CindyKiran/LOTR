@@ -1,8 +1,6 @@
 package com.littleworld.todo.controllers;
 
-import com.littleworld.todo.model.Administratie;
 import com.littleworld.todo.model.Student;
-import com.littleworld.todo.services.AdminService;
 import com.littleworld.todo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
