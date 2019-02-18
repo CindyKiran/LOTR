@@ -1,4 +1,4 @@
-<form [formGroup]="todoForm" (ngSubmit)="loginTodo($event)">
+<form [formGroup]="dataForm" (ngSubmit)="loginData($event)">
   <div class="imgcontainer">
     <h1>BlackBoard</h1>
     <img src="http://ae01.alicdn.com/kf/HTB1hmSCRFXXXXXPXXXXq6xXFXXX4.jpg" alt="Avatar" class="avatar">
@@ -13,10 +13,8 @@
 
     <p [class.red]=redError>Invalid password or username</p>
     <button type="submit">Login</button>
-    <!--<button (click)="saveTodo()">Register</button>--->
 
     <button routerLink="/register">Register</button>
-
 
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -24,7 +22,6 @@
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <a href="#">Register</a>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>

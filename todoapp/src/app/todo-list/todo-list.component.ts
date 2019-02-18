@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {Todo} from '../Todo';
-import {TodoServiceService} from '../todo-service.service';
+import {Student} from '../Student';
+import { StudentService} from '../student.service';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
-  providers:  [TodoServiceService]
+  providers:  [StudentService]
 })
 export class TodoListComponent implements OnInit {
 
-  todos: Todo[];
+  students: Student[];
 
-  constructor(private todoService: TodoServiceService) {
+  constructor(private studentService: StudentService) {
   }
 
   ngOnInit() {
-    this.getAllTodos();
+    this.getAllStudents();
   }
 
-  getAllTodos() {
-    this.todoService.findAll().subscribe(
-      todos => {
-        this.todos = todos;
+  getAllStudents() {
+    this.studentService.findAll().subscribe(
+      students => {
+        this.students = students;
       },
       err => {
         console.log(err);
@@ -30,8 +30,8 @@ export class TodoListComponent implements OnInit {
     );
   }
   delete(id) {
-    this.todoService.delete(id).subscribe(
-      () => this.getAllTodos()
+    this.studentService.delete(id).subscribe(
+      () => this.getAllStudents()
     );
   }
 }
