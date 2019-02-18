@@ -10,7 +10,6 @@ com\littleworld\todo\services\AdminService.class
 com\littleworld\todo\controllers\DocentController.class
 com\littleworld\todo\services\StudentService.class
 com\littleworld\todo\controllers\VakController.class
-com\littleworld\todo\model\Login.class
 com\littleworld\todo\services\OpleidingService.class
 com\littleworld\todo\model\University.class
 com\littleworld\todo\controllers\StudentController.class

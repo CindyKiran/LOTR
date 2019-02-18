@@ -28,6 +28,7 @@ export class StudentService {
       catchError(this.handleError<Student>(`saveUser`))
     );
   }
+
   delete(id) {
     return this.http.delete('http://localhost:8080/student/' + id).pipe(
       catchError(this.handleError<Student>(`delete`))
