@@ -9,6 +9,7 @@ import {catchError} from 'rxjs/operators';
 })
 export class StudentService {
 
+  currentStudent : Student;
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Student[]>  {

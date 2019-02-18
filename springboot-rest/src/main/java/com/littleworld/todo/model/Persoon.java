@@ -8,15 +8,13 @@ public class Persoon {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String naam;
-    private int leeftijd;
-    private String ras;
-    private String userName;
-    private String passWord;
+    private String creature;
     private String firstName;
     private String lastName;
+    private String userName;
+    private String passWord;
+    private int age;
     private String place;
-    private String creature;
     @ManyToOne
     private University university;
 
@@ -47,24 +45,10 @@ public class Persoon {
         this.university = university;
     }
 
-    public String getNaam() {
-        return naam;
+    public int getAge() {
+        return age;
     }
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public int getLeeftijd() {
-        return leeftijd;
-    }
-    public void setLeeftijd(int leeftijd) {
-        this.leeftijd = leeftijd;
-    }
-
-    public String getRas() {
-        return ras;
-    }
-    public void setRas(String ras) {
-        this.ras = ras;
+    public void setAge(int age) {
+        this.age = age;
     }
 }

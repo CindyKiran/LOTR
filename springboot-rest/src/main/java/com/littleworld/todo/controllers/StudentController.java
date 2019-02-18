@@ -41,9 +41,15 @@ public class StudentController {
 
     @ResponseBody
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public boolean authenticate(@RequestBody Student student) {
+    public Student authenticate(@RequestBody Student student) {
         List<Student> lijst = (List<Student>) studentService.findByUserNameAndPassWord(student.getUserName(), student.getPassWord());
-        return !lijst.isEmpty();
+
+        System.out.println(lijst.size());
+        if (lijst.size()==1) {
+            return lijst.get(0);
+        } else {
+            return null;
+        }
     }
 
     @ResponseBody

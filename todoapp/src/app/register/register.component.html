@@ -30,7 +30,10 @@
     <label for="place"><b>Place</b></label>
     <input formControlName="place" type="text" placeholder="Enter Place of Residence" id="place" name="place" required>
 
-    <button (click)="saveData()">Register</button>
+    <label for="age"><b>Date of birth</b></label><br>
+    <input formControlName="age" type="number" id="age" name="age" min="18">
+
+    <button>Register</button>
 
     <p [class.visible]="regSuccess">Registration form send</p><br>
     <p [class.visible]="emptyBoxes">Fill in all boxes</p><br>
