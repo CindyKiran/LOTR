@@ -18,46 +18,46 @@ public class DocentController {
     @Autowired
     private DocentService docentService;
 
-//    @ResponseBody
-//    @RequestMapping(value = "/docent", method = RequestMethod.POST)
-//    public long create(@RequestBody Docent docent){
-//        return docentService.save(docent).getId();
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/docent", method = RequestMethod.GET)
-//    public List<Docent> findAll(){
-//        return (List<Docent>)docentService.findAll();
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/docent/{id}", method = RequestMethod.GET)
-//    public Optional<Docent> docentById(@PathVariable long id){
-//        return docentService.findById(id);
-//    }
-//
-//    @RequestMapping(value = "/pageDocent", method = RequestMethod.GET)
-//    public String page(){
-//        return "docent";
-//    }
-//
-//
-////    @ResponseBody
-////    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-////    public boolean authenticate(@RequestBody Docent docent) {
-////        List<Docent> lijst = (List<Docent>) docentService.findByUserNameAndPassWord(docent.getUserName(), docent.getPassWord());
-////        return !lijst.isEmpty();
-////    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/docent/{id}", method = RequestMethod.PUT)
-//    public long updateDocent(@PathVariable long id, @RequestBody Docent docent) {
-//        return docentService.save(docent).getId();
-//    }
-//
-//    @ResponseStatus(value = HttpStatus.OK)
-//    @RequestMapping(value = "/docent/{id}", method = RequestMethod.DELETE)
-//    public void updateDocent(@PathVariable long id) {
-//        docentService.deleteById(id);
-//    }
+    @ResponseBody
+    @RequestMapping(value = "/docent", method = RequestMethod.POST)
+    public long create(@RequestBody Docent docent){
+        return docentService.save(docent).getId();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/docent", method = RequestMethod.GET)
+    public List<Docent> findAll(){
+        return (List<Docent>)docentService.findAll();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/docent/{id}", method = RequestMethod.GET)
+    public Optional<Docent> docentById(@PathVariable long id){
+        return docentService.findById(id);
+    }
+
+    @RequestMapping(value = "/pageDocent", method = RequestMethod.GET)
+    public String page(){
+        return "docent";
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/authenticateDocent", method = RequestMethod.POST)
+    public boolean authenticate(@RequestBody Docent docent) {
+        List<Docent> lijst = (List<Docent>) docentService.findByUserNameAndPassWord(docent.getUserName(), docent.getPassWord());
+        return !lijst.isEmpty();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/docent/{id}", method = RequestMethod.PUT)
+    public long updateDocent(@PathVariable long id, @RequestBody Docent docent) {
+        return docentService.save(docent).getId();
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/docent/{id}", method = RequestMethod.DELETE)
+    public void updateDocent(@PathVariable long id) {
+        docentService.deleteById(id);
+    }
 }

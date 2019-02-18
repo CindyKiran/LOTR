@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     passWord: ['', Validators.required],
     place: ['', Validators.required],
     creature: ['', Validators.required],
+    opleiding: ['', Validators.required],
   });
 
   ngOnInit() {
@@ -35,12 +36,13 @@ export class RegisterComponent implements OnInit {
     const passWord = this.dataForm.controls['passWord'].value;
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
+    const opleiding = this.dataForm.controls['opleiding'].value;
 
     if (userName.length == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature)).subscribe(
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, opleiding)).subscribe(
       );
       this.regSuccess = true;
     }

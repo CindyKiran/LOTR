@@ -8,8 +8,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {TodoListComponent} from './todo-list/todo-list.component';
 import { RegisterComponent } from './register/register.component';
 import { BlackboardComponent } from './blackboard/blackboard.component';
-import { NavComponent } from './nav/nav.component';
 import {Login} from './login/login.component';
+import { LoginDocentComponent } from './login-docent/login-docent.component';
+import { DocentRegisterComponent } from './docent-register/docent-register.component';
+import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {Login} from './login/login.component';
     Login,
     RegisterComponent,
     BlackboardComponent,
-    NavComponent,
+    LoginDocentComponent,
+    DocentRegisterComponent,
+    OpleidingVakkenComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,8 @@ export class Login implements OnInit {
     userName: ['', Validators.required],
     passWord: ['', Validators.required],
     place:  ['', Validators.required],
-    creature: ['', Validators.required]
+    creature: ['', Validators.required],
+    opleiding: ['', Validators.required],
   });
 
   ngOnInit() {
@@ -36,8 +37,9 @@ export class Login implements OnInit {
     const passWord = this.dataForm.controls['passWord'].value;
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
+    const opleiding = this.dataForm.controls['opleiding'].value;
 
-    this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature)).subscribe(result => {
+    this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature, opleiding)).subscribe(result => {
         console.log(result)
         if (result == true) {
           this.router.navigate(['blackboard'])

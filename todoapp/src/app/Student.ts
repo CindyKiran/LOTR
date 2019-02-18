@@ -7,8 +7,9 @@ export class Student{
   passWord: String;
   place: String;
   creature: String;
+  opleiding: String;
 
-  constructor(id: Number, firstName: String, lastName: String, userName: String, passWord: String, place: String, creature: String) {
+  constructor(id: Number, firstName: String, lastName: String, userName: String, passWord: String, place: String, creature: String, opleiding: String) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -16,5 +17,6 @@ export class Student{
     this.passWord = passWord;
     this.place = place;
     this.creature = creature;
+    this.opleiding = opleiding;
   }
 }

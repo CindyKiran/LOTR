@@ -24,7 +24,7 @@ export class StudentService {
   }
 
   authenticate(student: Student) {
-    return this.http.post('http://localhost:8080/authenticate', student).pipe(
+    return this.http.post('http://localhost:8080/authenticateStudent', student).pipe(
       catchError(this.handleError<Student>(`saveUser`))
     );
   }
