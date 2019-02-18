@@ -1,23 +1,20 @@
-<form [formGroup]="todoForm" >
+<form [formGroup]="dataForm" (ngSubmit)="saveData()">
   <div class="imgcontainer">
     <h1>Registration</h1>
   </div>
 
-  <div class="dropdown">
-    <button class="dropbtn">Creatures</button>
-    <div class="dropdown-content">
-      <button>Dwarf</button>
-      <button>Elf</button>
-      <button>Human</button>
-      <button>Orc</button>
-      <button>Hobbit</button>
-    </div>
+  <div>
+    <form [formGroup]="dataForm">
+    <h1>Choose Creature</h1>
+    <input type="radio" formControlName="creature" name="creature" value="dwarf">Dwarf<br>
+    <input type="radio" formControlName="creature" name="creature" value="elf">Elf<br>
+    <input type="radio" formControlName="creature" name="creature" value="human">Human<br>
+    <input type="radio" formControlName="creature" name="creature" value="orc">Orc<br>
+    <input type="radio" formControlName="creature" name="creature" value="hobbit">Hobbit
+    </form>
   </div>
 
-  <div class="container">
-    <label for="crea"><b>Creature</b></label>
-    <input formControlName="creature" type="text" placeholder="Pick Creature" id="crea" name="crea" required>
-
+  <div>
     <label for="fName"><b>First name</b></label>
     <input formControlName="firstName" type="text" placeholder="Enter First Name" id="fName" name="fName" required>
 
@@ -33,7 +30,7 @@
     <label for="place"><b>Place</b></label>
     <input formControlName="place" type="text" placeholder="Enter Place of Residence" id="place" name="place" required>
 
-    <button (click)="saveTodo()">Register</button>
+    <button (click)="saveData()">Register</button>
 
     <p [class.visible]="regSuccess">Registration form send</p><br>
     <p [class.visible]="emptyBoxes">Fill in all boxes</p><br>

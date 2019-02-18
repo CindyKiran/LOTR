@@ -1,5 +1,4 @@
-
-export class Todo {
+export class Student{
 
   id: Number = 0;
   firstName: String;
