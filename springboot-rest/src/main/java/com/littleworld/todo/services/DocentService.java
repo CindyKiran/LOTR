@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DocentService extends CrudRepository<Docent, Long> {
-//    Iterable<Docent>findByUserNameAndPassWord(String userName, String passWord);
+   Iterable<Docent>findByUserNameAndPassWord(String userName, String passWord);
 }

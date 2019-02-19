@@ -23,6 +23,7 @@ public class OpleidingController {
     public long create(@RequestBody Opleiding opleiding){
         return opleidingService.save(opleiding).getId();
     }
+
     @ResponseBody
     @RequestMapping(value = "/opleiding", method = RequestMethod.GET)
     public List<Opleiding> findAll(){
@@ -33,6 +34,7 @@ public class OpleidingController {
     public Optional<Opleiding> opleidingById(@PathVariable long id){
         return opleidingService.findById(id);
     }
+
     @RequestMapping(value = "/pageOpleiding", method = RequestMethod.GET)
     public String page(){
         return "opleiding";

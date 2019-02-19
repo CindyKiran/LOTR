@@ -21,7 +21,8 @@ export class Login implements OnInit {
     passWord: ['', Validators.required],
     place:  ['', Validators.required],
     creature: ['', Validators.required],
-    age: ['', Validators.required]
+    age: ['', Validators.required],
+    opleiding: ['', Validators.required],
   });
 
   ngOnInit() {
@@ -39,7 +40,10 @@ export class Login implements OnInit {
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
 
-    this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature, age)).subscribe(
+
+    const opleiding = this.dataForm.controls['opleiding'].value;
+
+    this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {

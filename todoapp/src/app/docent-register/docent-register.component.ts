@@ -1,15 +1,18 @@
+
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import {Student} from '../Student';
-import {StudentService} from '../student.service';
+import {Docent} from '../Docent';
+import {DocentService} from '../docent.service';
+
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-docent-register',
+  templateUrl: './docent-register.component.html',
+  styleUrls: ['./docent-register.component.css']
 })
-export class RegisterComponent implements OnInit {
-  constructor(public fb: FormBuilder, public studentService: StudentService) {
+export class DocentRegisterComponent implements OnInit {
+
+  constructor(public fb: FormBuilder, private docentService: DocentService) {
   }
 
   public dataForm = this.fb.group({
@@ -19,8 +22,6 @@ export class RegisterComponent implements OnInit {
     passWord: ['', Validators.required],
     place: ['', Validators.required],
     creature: ['', Validators.required],
-    age: ['', Validators.required],
-    opleiding: ['', Validators.required],
   });
 
   ngOnInit() {
@@ -37,15 +38,12 @@ export class RegisterComponent implements OnInit {
     const passWord = this.dataForm.controls['passWord'].value;
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
-    const age = this.dataForm.controls['age'].value;
-    const opleiding = this.dataForm.controls['opleiding'].value;
 
     if (userName.length == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-    
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, opleiding, age)).subscribe(
+      this.docentService.saveUser(new Docent(0, firstName, lastName, userName, passWord, place, creature)).subscribe(
       );
       this.regSuccess = true;
     }

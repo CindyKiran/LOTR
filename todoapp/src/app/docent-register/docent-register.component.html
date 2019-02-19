@@ -5,7 +5,7 @@
 
   <div>
     <form [formGroup]="dataForm">
-    <label><b>What is your kind?</b></label> <br>
+    <h1>Choose Creature</h1>
     <input type="radio" formControlName="creature" name="creature" value="dwarf">Dwarf<br>
     <input type="radio" formControlName="creature" name="creature" value="elf">Elf<br>
     <input type="radio" formControlName="creature" name="creature" value="human">Human<br>
@@ -30,27 +30,10 @@
     <label for="place"><b>Place</b></label>
     <input formControlName="place" type="text" placeholder="Enter Place of Residence" id="place" name="place" required>
 
-    <label for="age"><b>Date of birth</b></label><br>
-    <input formControlName="age" type="number" id="age" name="age" min="18">
-
-
-
-    <div>
-      <form [formGroup]="dataForm">
-      <label><b>What education are your applying for?</b></label> <br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="healer">Healer<br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="warrior">Warrior<br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="tanker">Tanker<br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="sorcerer">Sorcerer<br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="ranger">Ranger<br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="assassin">Assassin<br>
-      <input type="radio" formControlName="opleiding" name="opleiding" value="scientist">Political Scientist<br>
-      </form>
-    </div>
+    <button>Register</button>
 
     <p [class.visible]="regSuccess">Registration form send</p><br>
     <p [class.visible]="emptyBoxes">Fill in all boxes</p><br>
-    <button>Register</button>
 
     <button routerLink="" style="width: 20%">Login</button>
   </div>

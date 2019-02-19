@@ -20,6 +20,16 @@ public class Student extends Persoon {
         this.vakken = vakken;
     }
 
+    public String opleiding;
+
+    public String getOpleiding() {
+        return opleiding;
+    }
+
+    public void setOpleiding(String opleiding) {
+        this.opleiding = opleiding;
+    }
+
     public int getStudiePunten() {
         return studiePunten;
     }
