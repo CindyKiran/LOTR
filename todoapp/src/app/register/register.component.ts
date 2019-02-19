@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   constructor(public fb: FormBuilder, public studentService: StudentService, private router: Router) {
   }
-
   public dataForm = this.fb.group({
     firstName:  ['', Validators.required],
     lastName:  ['', Validators.required],
@@ -43,12 +42,13 @@ export class RegisterComponent implements OnInit {
     const age = this.dataForm.controls['age'].value;
     const opleiding = this.dataForm.controls['opleiding'].value;
 
-    if (userName.length == 0 || passWord.length == 0 || firstName == 0) {
+    if (userName.length == 0 || lastName == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
     
       this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe();
+
       this.regSuccess = true;
     }
   }

@@ -1,14 +1,14 @@
 export class Docent{
 
-    id: Number = 0;
-    firstName: String;
-    lastName: String;
-    userName: String;
-    passWord: String;
-    place: String;
-    creature: String;
+    id: number = 0;
+    firstName: string;
+    lastName: string;
+    userName: string;
+    passWord: string;
+    place: string;
+    creature: string;
   
-    constructor(id: Number, firstName: String, lastName: String, userName: String, passWord: String, place: String, creature: String) {
+    constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string) {
       this.id = id;
       this.firstName = firstName;
       this.lastName = lastName;
@@ -18,4 +18,3 @@ export class Docent{
       this.creature = creature;
     }
   }
-  

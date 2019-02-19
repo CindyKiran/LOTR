@@ -1,17 +1,17 @@
 export class Student{
 
   id: Number = 0;
-  firstName: String;
-  lastName: String;
-  userName: String;
-  passWord: String;
-  place: String;
-  creature: String;
-  age: Number;
-  opleiding: String;
+  firstName: string;
+  lastName: string;
+  userName: string;
+  passWord: string;
+  place: string;
+  creature: string;
+  age: number;
+  opleiding: string;
 
 
-  constructor(id: Number, firstName: String, lastName: String, userName: String, passWord: String, place: String, creature: String, age: Number, opleiding: String) {
+  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;

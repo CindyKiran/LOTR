@@ -45,8 +45,11 @@ export class Login implements OnInit {
       (result: Student) => {
         console.log(result)
         if (result != null) {
-          this.router.navigate(['blackboard'])
+          localStorage.setItem('key', result.userName);
+          localStorage.setItem('first', result.firstName);
+          localStorage.setItem('last', result.lastName);
           this.studentService.currentStudent = result;
+          this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])
           this.redError = true;

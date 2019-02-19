@@ -45,7 +45,7 @@ public class StudentController {
 
         List<Student> lijst = (List<Student>) studentService.findByUserNameAndPassWord(student.getUserName(), student.getPassWord());
 
-        System.out.println(lijst.size());
+//        System.out.println(lijst.size());
         if (lijst.size()==1) {
             return lijst.get(0);
         } else {
