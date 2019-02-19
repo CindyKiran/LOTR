@@ -2,21 +2,24 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {Student} from '../Student';
 import {StudentService} from '../student.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers:  [StudentService]
 })
 export class RegisterComponent implements OnInit {
-  constructor(public fb: FormBuilder, public studentService: StudentService) {
+  constructor(public fb: FormBuilder, public studentService: StudentService, private router: Router) {
   }
   public dataForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
+    firstName:  ['', Validators.required],
+    lastName:  ['', Validators.required],
     userName: ['', Validators.required],
     passWord: ['', Validators.required],
-    place: ['', Validators.required],
+    place:  ['', Validators.required],
     creature: ['', Validators.required],
     age: ['', Validators.required],
     opleiding: ['', Validators.required],
@@ -28,7 +31,7 @@ export class RegisterComponent implements OnInit {
   regSuccess: boolean = false;
   emptyBoxes: boolean = false;
 
-  public saveData() {
+  public saveData(event) {
 
     const firstName = this.dataForm.controls['firstName'].value;
     const lastName = this.dataForm.controls['lastName'].value;
@@ -43,10 +46,9 @@ export class RegisterComponent implements OnInit {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, opleiding, age)).subscribe(
-      );
-      // localStorage.setItem('first', firstName);
-      // localStorage.setItem('last', lastName);
+    
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe();
+
       this.regSuccess = true;
     }
   }

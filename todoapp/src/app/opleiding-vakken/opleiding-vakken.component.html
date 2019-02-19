@@ -1,3 +1,54 @@
-<p>
-  opleiding-vakken works!
-</p>
+<h1>Register Opleiding</h1>
+<form [formGroup]="dataForm">
+  <div class="imgcontainer">
+  </div>
+
+  <div>
+    <label for="oNaam"><b>Naam opleiding</b></label>
+    <input formControlName="naam" type="text"  id="oNaam" name="oNaam" required>
+
+    <label for="rEis"><b>Ras toegestaan</b></label>
+    <input formControlName="rasEis" type="text" id="rEislName" name="rEis" required>
+
+    <label for="mpunten"><b>Max studiepunten</b></label>
+    <input formControlName="maxStudiepunten" type="text" id="mpunten" name="mpunten" required>
+
+    <button (click)="saveOpleiding($event)">Register</button>
+  </div>
+</form>
+
+<h1>Register Vak</h1>
+<form [formGroup]="dataForm">
+  <div class="imgcontainer">
+  </div>
+
+  <div>
+    <label for="vNaam"><b>Naam vak</b></label>
+    <input formControlName="naam" type="text"  id="vNaam" name="vNaam" required>
+
+    <label for="rEis"><b>Ras toegestaan</b></label>
+    <input formControlName="rasEis" type="text" id="rEislName" name="rEis" required>
+
+    <label for="mpunten"><b>Max studiepunten</b></label>
+    <input formControlName="maxStudiepunten" type="text" id="mpunten" name="mpunten" required>
+    
+    <div>
+      <form [formGroup]="dataForm">
+      <label><b>Who teaches this course</b></label> <br>
+      <input type="radio" formControlName="docent" name="docent" value="elron">Elron<br>
+      <input type="radio" formControlName="docent" name="docent" value="gandalf">gandalf<br>
+      <input type="radio" formControlName="docent" name="docent" value="aragorn">Aragorn<br>
+      <input type="radio" formControlName="docent" name="docent" value="arwen">Arwen<br>
+      <input type="radio" formControlName="docent" name="docent" value="legolas">Legolas<br>
+      <input type="radio" formControlName="docent" name="docent" value="gimli">Gimli<br>
+      <input type="radio" formControlName="docent" name="docent" value="treabeard">Treabeard<br>
+      <input type="radio" formControlName="docent" name="docent" value="sauron">Sauron<br>
+      <input type="radio" formControlName="docent" name="docent" value="bard">Bard<br>
+      <input type="radio" formControlName="docent" name="docent" value="bilbo">Bilbo<br>
+
+      </form>
+    </div>
+
+    <button (click)="saveVak($event)">Register</button>
+  </div>
+</form>

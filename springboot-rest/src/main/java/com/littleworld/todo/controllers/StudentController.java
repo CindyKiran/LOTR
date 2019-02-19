@@ -40,7 +40,7 @@ public class StudentController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    @RequestMapping(value = "/authenticateStudent", method = RequestMethod.POST)
     public Student authenticate(@RequestBody Student student) {
 
         List<Student> lijst = (List<Student>) studentService.findByUserNameAndPassWord(student.getUserName(), student.getPassWord());
