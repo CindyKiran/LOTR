@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {StudentService} from '../student.service';
+import { Login} from '../login/login.component';
 
 @Component({
   selector: 'app-blackboard',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlackboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public studentService: StudentService) {
+  }
 
   ngOnInit() {
   }
-
 }

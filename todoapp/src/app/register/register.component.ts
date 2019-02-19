@@ -9,7 +9,7 @@ import {StudentService} from '../student.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(public fb: FormBuilder, private studentService: StudentService) {
+  constructor(public fb: FormBuilder, public studentService: StudentService) {
   }
 
   public dataForm = this.fb.group({
@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     passWord: ['', Validators.required],
     place: ['', Validators.required],
     creature: ['', Validators.required],
+    age: ['', Validators.required],
     opleiding: ['', Validators.required],
   });
 
@@ -36,13 +37,15 @@ export class RegisterComponent implements OnInit {
     const passWord = this.dataForm.controls['passWord'].value;
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
+    const age = this.dataForm.controls['age'].value;
     const opleiding = this.dataForm.controls['opleiding'].value;
 
     if (userName.length == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, opleiding)).subscribe(
+    
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, opleiding, age)).subscribe(
       );
       this.regSuccess = true;
     }

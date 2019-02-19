@@ -30,6 +30,11 @@
     <label for="place"><b>Place</b></label>
     <input formControlName="place" type="text" placeholder="Enter Place of Residence" id="place" name="place" required>
 
+    <label for="age"><b>Date of birth</b></label><br>
+    <input formControlName="age" type="number" id="age" name="age" min="18">
+
+
+
     <div>
       <form [formGroup]="dataForm">
       <label><b>What education are your applying for?</b></label> <br>
@@ -43,10 +48,9 @@
       </form>
     </div>
 
+    <p [class.visible]="regSuccess">Registration form send</p><br>
+    <p [class.visible]="emptyBoxes">Fill in all boxes</p><br>
     <button>Register</button>
-
-    <p [class.visible]="regSuccess">Registration form send</p>
-    <p [class.visible]="emptyBoxes">Fill in all boxes</p>
 
     <button routerLink="" style="width: 20%">Login</button>
   </div>
