@@ -39,16 +39,17 @@ export class Login implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
-
-
     const opleiding = this.dataForm.controls['opleiding'].value;
 
     this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
-          this.router.navigate(['blackboard'])
+          localStorage.setItem('key', result.userName);
+          localStorage.setItem('first', result.firstName);
+          localStorage.setItem('last', result.lastName);
           this.studentService.currentStudent = result;
+          this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])
           this.redError = true;

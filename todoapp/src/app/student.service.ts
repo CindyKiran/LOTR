@@ -24,8 +24,14 @@ export class StudentService {
     );
   }
 
+  studentById(student: Student){
+    return this.http.post('http://localhost:8080/student/{id}', student).pipe(
+      catchError(this.handleError<Student>(`studentById`))
+    );
+  }
+
   authenticate(student: Student) {
-    return this.http.post('http://localhost:8080/authenticateStudent', student).pipe(
+    return this.http.post('http://localhost:8080/authenticate', student).pipe(
       catchError(this.handleError<Student>(`saveUser`))
     );
   }
