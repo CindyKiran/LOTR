@@ -39,8 +39,6 @@ export class Login implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
-
-
     const opleiding = this.dataForm.controls['opleiding'].value;
 
     this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(

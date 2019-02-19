@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public abstract class Opleiding {
+public class Opleiding {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
