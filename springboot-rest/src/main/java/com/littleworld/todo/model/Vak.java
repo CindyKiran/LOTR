@@ -1,21 +1,22 @@
 package com.littleworld.todo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-public class Vak extends Opleiding{
+public class Vak {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private int periode;
-    private int maxStudiePunten;
+    private int maxStudiePunten =5;
     private int maxStudenten;
     private boolean isVerplicht;
+    private String docent;
+    @ManyToMany
+    private Set<Opleiding> opleidingen;
 
-    @Override
+
     public long getId() {
         return id;
     }
@@ -28,12 +29,12 @@ public class Vak extends Opleiding{
         this.periode = periode;
     }
 
-    @Override
+
     public int getMaxStudiePunten() {
         return maxStudiePunten;
     }
 
-    @Override
+
     public void setMaxStudiePunten(int maxStudiePunten) {
         this.maxStudiePunten = maxStudiePunten;
     }
@@ -52,5 +53,13 @@ public class Vak extends Opleiding{
 
     public void setVerplicht(boolean verplicht) {
         isVerplicht = verplicht;
+    }
+
+    public String getDocent() {
+        return docent;
+    }
+
+    public void setDocent(String docent) {
+        this.docent = docent;
     }
 }

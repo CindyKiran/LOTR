@@ -5,24 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
-import {TodoListComponent} from './todo-list/todo-list.component';
 import { RegisterComponent } from './register/register.component';
 import { BlackboardComponent } from './blackboard/blackboard.component';
 import {Login} from './login/login.component';
 import { LoginDocentComponent } from './login-docent/login-docent.component';
 import { DocentRegisterComponent } from './docent-register/docent-register.component';
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
+import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
     Login,
     RegisterComponent,
     BlackboardComponent,
     LoginDocentComponent,
     DocentRegisterComponent,
     OpleidingVakkenComponent,
+    VakInschrijvingComponent,
   ],
   imports: [
     BrowserModule,

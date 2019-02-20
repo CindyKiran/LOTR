@@ -30,5 +30,9 @@ export class OpleidingService {
       return of(result as Opleiding);
     };
   }
+
+  displayVakken(): Observable<Opleiding[]>  {
+    return this.http.get<any>('http://localhost:8080/opleiding/5');
+  }
 }
 
