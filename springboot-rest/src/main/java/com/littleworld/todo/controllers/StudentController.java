@@ -40,11 +40,14 @@ public class StudentController {
     }
 
     @ResponseBody
+    @RequestMapping (value = "/username/{userName}", method = RequestMethod.GET)
+    public List<Student> findbyUserName(@PathVariable String userName){return (List<Student>) studentService.findByUserName(userName);
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/authenticateStudent", method = RequestMethod.POST)
-    public Student authenticate(@RequestBody Student student) {
-
+    public Student authenticateStudent(@RequestBody Student student) {
         List<Student> lijst = (List<Student>) studentService.findByUserNameAndPassWord(student.getUserName(), student.getPassWord());
-
 //        System.out.println(lijst.size());
         if (lijst.size()==1) {
             return lijst.get(0);

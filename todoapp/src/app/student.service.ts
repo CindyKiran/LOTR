@@ -29,9 +29,14 @@ export class StudentService {
       catchError(this.handleError<Student>(`studentById`))
     );
   }
+  // findbyUserName() :Observable <Student[]>{
+  //   return this.http.get<any>('http://localhost:8080/username/{userName}').pipe(
+  //     catchError(this.handleError<Student>(`findbyUserName`))
+  //   );
+  // }
 
-  authenticate(student: Student) {
-    return this.http.post('http://localhost:8080/authenticate', student).pipe(
+  authenticateStudent(student: Student) {
+    return this.http.post('http://localhost:8080/authenticateStudent', student).pipe(
       catchError(this.handleError<Student>(`saveUser`))
     );
   }
