@@ -4,39 +4,96 @@
   </div>
 
   <div>
-    <label for="oNaam"><b>Naam opleiding</b></label>
-    <input formControlName="naam" type="text"  id="oNaam" name="oNaam" required>
+      <form [formGroup]="dataForm">
+      <label><b>Which education degree</b></label> <br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="sorcerer">Sorcerer Apprentice<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="healer">Healer<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="warrior">Warrior<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="tanker">Tanker<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="ranger">Ranger<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="assassin">Assassin<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="scientist">Political Scientist<br>
+      </form>
+    </div>
 
-    <label for="rEis"><b>Ras toegestaan</b></label>
-    <input formControlName="rasEis" type="text" id="rEislName" name="rEis" required>
 
-    <label for="mpunten"><b>Max studiepunten</b></label>
-    <input formControlName="maxStudiepunten" type="text" id="mpunten" name="mpunten" required>
+  <div>
+    <form [formGroup]="form">
+        <b>What kind can follow this education:</b><br>
+        <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; 
+        let i = index">
+          <input type="checkbox" [formControlName]="i">
+          {{orders[i].name}}
+        </label>
+      </form>
+
 
     <button (click)="saveOpleiding($event)">Register</button>
   </div>
 </form>
+<br><br>
+
 
 <h1>Register Vak</h1>
 <form [formGroup]="dataForm">
   <div class="imgcontainer">
   </div>
 
+  
   <div>
-    <label for="vNaam"><b>Naam vak</b></label>
-    <input formControlName="naam" type="text"  id="vNaam" name="vNaam" required>
-
-    <label for="rEis"><b>Ras toegestaan</b></label>
-    <input formControlName="rasEis" type="text" id="rEislName" name="rEis" required>
-
-    <label for="mpunten"><b>Max studiepunten</b></label>
-    <input formControlName="maxStudiepunten" type="text" id="mpunten" name="mpunten" required>
+      <form [formGroup]="dataForm">
+      <label><b>Select course</b></label> <br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="healingMagic">Magic Healing<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="defenseMagic">Defense Magic<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="elementalist">Elementalist<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="necromancer">Necromancer<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="witchcraft">Witchcraft<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="wand">Wand and Sceptor Mastery<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="magic">Magic Beginner<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="healingNoMagic">Healing without magic<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="defence">Defensive Tactics<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="biology">Biology<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="chemistry">Chemistry<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="history">History<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="pychology">Psychology<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="shadowplay">Shadowplay<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="fBootcamp">Physical Bootcamp<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="weapon">Weapon skills<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="archery">Archery Advanced<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="fightScience">Figth Science<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="closeCombat">Close Combat Mastery<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="shield">Shield mastery<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="mBootcamp">Muscle Build Bootcamp<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="alchemy">Alchemy<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="camouflage">Camouflage Mastery<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="knife">Knife Use Mastery<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="night">Night training<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="physics">Physics<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="horse">Horse Riding<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="politics">Politics<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="admin">Public administration<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="philosophy">Philosophy<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="math">Mathematics<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="literature">Literature<br>
+      <input type="radio" formControlName="naam"  id="naam" name="naam" value="language">Languages<br>
+      </form>
+  </div>
     
+
+    <form [formGroup]="form">
+      <b>What kind can follow this course:</b><br>
+      <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; 
+      let i = index">
+        <input type="checkbox" [formControlName]="i">
+        {{orders[i].name}}
+      </label>
+    </form>
+
     <div>
       <form [formGroup]="dataForm">
       <label><b>Who teaches this course</b></label> <br>
       <input type="radio" formControlName="docent" name="docent" value="elron">Elron<br>
-      <input type="radio" formControlName="docent" name="docent" value="gandalf">gandalf<br>
+      <input type="radio" formControlName="docent" name="docent" value="gandalf">Gandalf<br>
       <input type="radio" formControlName="docent" name="docent" value="aragorn">Aragorn<br>
       <input type="radio" formControlName="docent" name="docent" value="arwen">Arwen<br>
       <input type="radio" formControlName="docent" name="docent" value="legolas">Legolas<br>
@@ -45,10 +102,8 @@
       <input type="radio" formControlName="docent" name="docent" value="sauron">Sauron<br>
       <input type="radio" formControlName="docent" name="docent" value="bard">Bard<br>
       <input type="radio" formControlName="docent" name="docent" value="bilbo">Bilbo<br>
-
       </form>
     </div>
 
     <button (click)="saveVak($event)">Register</button>
-  </div>
 </form>

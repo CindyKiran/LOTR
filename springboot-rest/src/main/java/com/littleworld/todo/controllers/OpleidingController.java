@@ -2,6 +2,7 @@ package com.littleworld.todo.controllers;
 
 import com.littleworld.todo.model.Administratie;
 import com.littleworld.todo.model.Opleiding;
+import com.littleworld.todo.model.Vak;
 import com.littleworld.todo.services.AdminService;
 import com.littleworld.todo.services.OpleidingService;
 import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@Controller
+@RestController
 public class OpleidingController {
     @Autowired
     private OpleidingService opleidingService;
@@ -29,6 +30,7 @@ public class OpleidingController {
     public List<Opleiding> findAll(){
         return (List<Opleiding>)opleidingService.findAll();
     }
+
     @ResponseBody
     @RequestMapping(value = "/opleiding/{id}", method = RequestMethod.GET)
     public Optional<Opleiding> opleidingById(@PathVariable long id){
@@ -39,4 +41,6 @@ public class OpleidingController {
     public String page(){
         return "opleiding";
     }
+
+
 }
