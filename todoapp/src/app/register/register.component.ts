@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Student} from '../Student';
 import {StudentService} from '../student.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-register',
@@ -14,6 +13,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   constructor(public fb: FormBuilder, public studentService: StudentService, private router: Router) {
   }
+  @Input()
+    student: Student[];
+
   public dataForm = this.fb.group({
     firstName:  ['', Validators.required],
     lastName:  ['', Validators.required],
@@ -22,17 +24,33 @@ export class RegisterComponent implements OnInit {
     place:  ['', Validators.required],
     creature: ['', Validators.required],
     age: ['', Validators.required],
-    opleiding: ['', Validators.required],
+    opleiding: ['', Validators.required]
   });
 
   ngOnInit() {
   }
+  public validateUserName(event) {
+    this.studentService.findAll().subscribe(
+      (student) => {
+        this.student = student;
+        var userNameTaken: boolean;
+        userNameTaken = false;
+        for(let x=0; x<this.student.length; x++){
+          if (this.student[x].userName == this.dataForm.controls['userName'].value) {
+            userNameTaken = true;
+            console.log("Username is already taken!");
+            break;
+          }
+        }
+        if(!userNameTaken){
+          console.log("username te gebruiken");
+          this.saveData();
+          localStorage.setItem('user', (this.dataForm.controls['userName'].value))
+        }
+      })
+  }
 
-  regSuccess: boolean = false;
-  emptyBoxes: boolean = false;
-
-  public saveData(event) {
-
+  public saveData() {
     const firstName = this.dataForm.controls['firstName'].value;
     const lastName = this.dataForm.controls['lastName'].value;
     const userName = this.dataForm.controls['userName'].value;
@@ -42,14 +60,17 @@ export class RegisterComponent implements OnInit {
     const age = this.dataForm.controls['age'].value;
     const opleiding = this.dataForm.controls['opleiding'].value;
 
+    var regSuccess: boolean;
+    regSuccess = false;
+    var emptyBoxes: boolean;
+    emptyBoxes = false;
+
     if (userName.length == 0 || lastName == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
-      this.emptyBoxes = true;
+      emptyBoxes = true;
     } else {
-    
       this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe();
-
-      this.regSuccess = true;
+      regSuccess = true;
     }
   }
 }

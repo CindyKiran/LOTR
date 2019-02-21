@@ -1,4 +1,4 @@
-<form [formGroup]="dataForm" (ngSubmit)="saveData($event)">
+<form [formGroup]="dataForm" (ngSubmit)="validateUserName($event)">
   <div class="imgcontainer">
     <h1>Registration</h1>
   </div>
@@ -17,6 +17,10 @@
   <div>
     <label for="fName"><b>First name</b></label>
     <input formControlName="firstName" type="text" placeholder="Enter First Name" id="fName" name="fName" required>
+    <!--<div *ngIf="firstName.invalid">-->
+      <!--<div *ngIf="firstName.errors.required>Name is required-->
+      <!--</div>-->
+    <!--</div>-->
 
     <label for="lName"><b>Last name</b></label>
     <input formControlName="lastName" type="text" placeholder="Enter Last Name" id="lName" name="lName" required>
@@ -33,8 +37,6 @@
     <label for="age"><b>Date of birth</b></label><br>
     <input formControlName="age" type="number" id="age" name="age" min="18">
 
-
-
     <div>
       <form [formGroup]="dataForm">
       <label><b>What education are your applying for?</b></label> <br>
@@ -50,7 +52,7 @@
 
     <p [class.visible]="regSuccess">Registration form send</p><br>
     <p [class.visible]="emptyBoxes">Fill in all boxes</p><br>
-    <button>Register</button>
+    <button type="submit">Register</button>
 
     <button routerLink="" style="width: 20%">Login</button>
   </div>
