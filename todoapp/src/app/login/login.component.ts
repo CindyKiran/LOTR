@@ -48,6 +48,8 @@ export class Login implements OnInit {
           this.studentService.currentStudent = result;
           localStorage.setItem('first', result.firstName);
           localStorage.setItem('last', result.lastName);
+          localStorage.setItem('userName', result.userName);
+          localStorage.setItem('opleiding', result.opleiding);
           this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])
