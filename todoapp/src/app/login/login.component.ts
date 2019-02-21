@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class Login implements OnInit {
   constructor(public fb: FormBuilder, private studentService: StudentService, private router: Router) {
   }
+  redError: boolean = false;
 
   public dataForm = this.fb.group({
     firstName:  ['', Validators.required],
@@ -29,9 +30,6 @@ export class Login implements OnInit {
   }
 
   public loginData(event) {
-    var redError: boolean;
-    redError = false;
-
     const firstName = this.dataForm.controls['firstName'].value;
     const lastName = this.dataForm.controls['lastName'].value;
     const userName = this.dataForm.controls['userName'].value;
@@ -51,7 +49,8 @@ export class Login implements OnInit {
           this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])
-          redError = true;
+          console.log("invalid username and/or password")
+          this.redError = true;
         }
       }
     );
