@@ -1,10 +1,14 @@
 
-  Hello
 
-  {{opleiding.naam}}
+<h1> {{opleiding?.naam}}</h1> 
+  
 
-  <ul>
-<li *ngFor="let vak of opleiding.vakken">
-  {{ vak.docent }}
-</li>
-</ul>
+
+<div *ngFor="let vak of opleiding?.vakken">
+  naam: {{ vak.naam }} <br>
+  docent: {{ vak.docent }} <br>
+  periode: {{ vak.periode }} <br>
+  ras toegestaan: {{ vak.rasEis }}
+  <button>Inschrijven</button>
+</div>
+

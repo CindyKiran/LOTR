@@ -10,10 +10,11 @@ public class Vak {
     private long id;
     private String naam;
     private int periode;
-    private int maxStudiePunten =5;
+    private int maxStudiePunten = 5;
     private int maxStudenten;
     private boolean isVerplicht;
     private String docent;
+    private String rasEis[];
     @ManyToMany
     private Set<Opleiding> opleidingen;
 
@@ -45,11 +46,9 @@ public class Vak {
         this.periode = periode;
     }
 
-
     public int getMaxStudiePunten() {
         return maxStudiePunten;
     }
-
 
     public void setMaxStudiePunten(int maxStudiePunten) {
         this.maxStudiePunten = maxStudiePunten;
@@ -77,5 +76,13 @@ public class Vak {
 
     public void setDocent(String docent) {
         this.docent = docent;
+    }
+
+    public String[] getRasEis() {
+        return rasEis;
+    }
+
+    public void setRasEis(String[] rasEis) {
+        this.rasEis = rasEis;
     }
 }
