@@ -12,6 +12,13 @@ import { LoginDocentComponent } from './login-docent/login-docent.component';
 import { DocentRegisterComponent } from './docent-register/docent-register.component';
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { HomeworkComponent } from './homework/homework.component';
+import { StudypointsComponent } from './studypoints/studypoints.component';
+import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
+import { ContactComponent } from './contact/contact.component';
+import { NavComponent } from './nav/nav.component';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +30,12 @@ import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.co
     DocentRegisterComponent,
     OpleidingVakkenComponent,
     VakInschrijvingComponent,
+    ScheduleComponent,
+    HomeworkComponent,
+    StudypointsComponent,
+    PersonalinfoComponent,
+    ContactComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

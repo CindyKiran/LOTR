@@ -25,4 +25,3 @@ angular.module('todo', []).controller("TodoCtrl", function($scope, $http) {
     });
   };
 });
-
