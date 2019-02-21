@@ -1,5 +1,10 @@
-<p>
+
   Hello
 
-  {{todos.id}}
-</p>
+  {{opleiding.naam}}
+
+  <ul>
+<li *ngFor="let vak of opleiding.vakken">
+  {{ vak.docent }}
+</li>
+</ul>

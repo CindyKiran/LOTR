@@ -1,17 +1,18 @@
+import { Opleiding } from "./Opleiding";
+
 export class Vak{
 
-    id: Number = 0;
-    naam: String;
-    rasEis :String;
-    maxStudiepunten: Number
-    docent: String;
-  
-    constructor(id: Number, naam: String, rasEis: String, maxStudiepunten: Number, docent: String) {
-      this.id = id;
-      this.naam = naam;
-      this.rasEis = rasEis;
-      this.maxStudiepunten = maxStudiepunten;
-      this.docent = docent;
+    id: number = 0;
+    naam : string;
+    periode: number;
+    maxStudiePunten: number;
+    maxStudenten: number;
+    isVerplicht : boolean;
+    docent: string;
+    opleidingen : Opleiding[];
+
+    constructor(id: number = 0, naam : string, periode: number, maxStudiePunten: number, maxStudenten: number, isVerplicht : boolean, docent: string){
+
     }
   }
   

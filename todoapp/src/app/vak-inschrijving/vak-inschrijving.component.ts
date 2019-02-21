@@ -13,19 +13,23 @@ export class VakInschrijvingComponent implements OnInit {
 
 
   constructor(private opleidingService: OpleidingService) {
+
   }
 
-  todos: Opleiding[];
+  opleiding: Opleiding;
 
 
   ngOnInit() {
-    this.test
+    this.test();
   }
 
   test(){
-    this.opleidingService.displayVakken().subscribe(
-      todos => {
-      this.todos = todos;
+
+    this.opleidingService.displayVakken(5).subscribe(
+      opleiding => {
+        console.log(opleiding);
+      this.opleiding = opleiding;
+      
     },
     err => {
       console.log(err);

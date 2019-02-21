@@ -8,6 +8,7 @@ public class Vak {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String naam;
     private int periode;
     private int maxStudiePunten =5;
     private int maxStudenten;
@@ -16,6 +17,21 @@ public class Vak {
     @ManyToMany
     private Set<Opleiding> opleidingen;
 
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+//    public Set<Opleiding> getOpleidingen() {
+//        return opleidingen;
+//    }
+
+//    public void setOpleidingen(Set<Opleiding> opleidingen) {
+//        this.opleidingen = opleidingen;
+//    }
 
     public long getId() {
         return id;
