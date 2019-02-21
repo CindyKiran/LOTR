@@ -63,6 +63,7 @@ export class OpleidingVakkenComponent implements OnInit {
       .filter(v => v !== null);
     const isVerplicht = false;  
     const periode = 1;
+    
    this.vakService.saveVak(new Vak(0, naam, periode,rasEis,maxStudiepunten, isVerplicht, docent)).subscribe();
     
   }
