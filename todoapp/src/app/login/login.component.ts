@@ -28,9 +28,9 @@ export class Login implements OnInit {
   ngOnInit() {
   }
 
-  redError: boolean = false;
-
   public loginData(event) {
+    var redError: boolean;
+    redError = false;
 
     const firstName = this.dataForm.controls['firstName'].value;
     const lastName = this.dataForm.controls['lastName'].value;
@@ -41,18 +41,17 @@ export class Login implements OnInit {
     const age = this.dataForm.controls['age'].value;
     const opleiding = this.dataForm.controls['opleiding'].value;
 
-    this.studentService.authenticate(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
-          localStorage.setItem('key', result.userName);
+          this.studentService.currentStudent = result;
           localStorage.setItem('first', result.firstName);
           localStorage.setItem('last', result.lastName);
-          this.studentService.currentStudent = result;
           this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])
-          this.redError = true;
+          redError = true;
         }
       }
     );

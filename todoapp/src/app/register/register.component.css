@@ -16,7 +16,9 @@ form {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-  
+   input.invalid {
+     background-color: #ffdddd;
+}
   /* Set a style for all buttons */
   button {
     background-color: #4CAF50;
