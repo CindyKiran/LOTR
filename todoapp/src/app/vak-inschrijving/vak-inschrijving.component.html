@@ -1,6 +1,9 @@
-<app-nav></app-nav>
-<p>
-  Hello
+<h1> {{opleiding?.naam}}</h1>
 
-  {{todos.id}}
-</p>
+<div *ngFor="let vak of opleiding?.vakken">
+  naam: {{ vak.naam }} <br>
+  docent: {{ vak.docent }} <br>
+  periode: {{ vak.periode }} <br>
+  ras toegestaan: {{ vak.rasEis }}
+  <button>Inschrijven</button>
+</div>

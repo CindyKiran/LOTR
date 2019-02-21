@@ -17,7 +17,6 @@ public class Opleiding {
     private Set<Docent> docenten;
     @ManyToOne
     private University university;
-
     @ManyToMany (mappedBy="opleidingen")
     private Set<Vak> vakken;
 

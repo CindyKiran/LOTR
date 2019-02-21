@@ -1,16 +1,22 @@
+import { Docent } from "./Docent";
+import { Vak } from "./Vak";
+import { University } from "./University";
+
 export class Opleiding{
 
-    id: Number = 0;
-    naam: String;
-    rasEis :String;
-    maxStudiepunten: Number
+    id: number = 0;
+    naam: string;
+    rasEis :string;
+    afdeling: string;
+    maxStudiePunten: number;
+    docenten: Docent[];
+    university: University;
+    vakken: Vak[];
 
-  
-    constructor(id: Number, naam: String, rasEis: String, maxStudiepunten: Number) {
+    constructor(id: number, naam: string, rasEis :string, maxStudiePunten: number){
       this.id = id;
       this.naam = naam;
       this.rasEis = rasEis;
-      this.maxStudiepunten = maxStudiepunten;
+      this.maxStudiePunten = maxStudiePunten;
     }
   }
-  

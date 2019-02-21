@@ -32,6 +32,7 @@ export class OpleidingVakkenComponent implements OnInit {
 
   public dataForm = this.fb.group({
     naam: ['', Validators.required],
+    periode: ['', Validators.required],
     rasEis: ['', Validators.required],
     maxStudiepunten: ['', Validators.required],
     docent: ['', Validators.required],
@@ -50,19 +51,22 @@ export class OpleidingVakkenComponent implements OnInit {
       .filter(v => v !== null);
     const maxStudiepunten = 50;
 
-      this.opleidingService.saveOpleiding(new Opleiding(0, naam, rasEis,maxStudiepunten)).subscribe();
+  this.opleidingService.saveOpleiding(new Opleiding(0, naam, rasEis,maxStudiepunten)).subscribe();
     
   }
 
   public saveVak(event) {
     const naam = this.dataForm.controls['naam'].value;
+    const periode = this.dataForm.controls['periode'].value;
+    const maxStudiePunten = 5;
+    const maxStudenten = 200;
+    const isVerplicht = false;  
     const docent = this.dataForm.controls['docent'].value;
-    const maxStudiepunten = 5;
     const rasEis = this.form.value.orders
       .map((v, i) => v ? this.orders[i].id : null)
       .filter(v => v !== null);
 
-    this.vakService.saveVak(new Vak(0, naam, rasEis,maxStudiepunten, docent)).subscribe();
+   this.vakService.saveVak(new Vak(0, naam, periode,maxStudiePunten, maxStudenten,isVerplicht, docent,rasEis)).subscribe();
     
   }
 
