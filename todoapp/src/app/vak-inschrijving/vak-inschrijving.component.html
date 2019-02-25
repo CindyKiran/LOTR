@@ -6,9 +6,9 @@
 
 <div *ngFor="let vak of opleiding?.vakken">
   naam: {{ vak.naam }} <br>
-  docent: {{ vak.docent }} <br>
+  <!--docent: {{ vak.docent }} <br>-->
   periode: {{ vak.periode }} <br>
   ras toegestaan: {{ vak.rasEis }}
-  <button>Inschrijven</button>
+  <button (click)="inschrijven()">Inschrijven</button>
 </div>
 

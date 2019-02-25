@@ -9,16 +9,16 @@ import java.util.Set;
 @Entity
 public class Student extends Persoon {
     private int studiePunten;
-    @OneToMany
-    private Set<Vak> vakken;
-
-    public Set<Vak> getVakken() {
-        return vakken;
-    }
-
-    public void setVakken(Set<Vak> vakken) {
-        this.vakken = vakken;
-    }
+//    @OneToMany
+//    private Set<Vak> vakken;
+//
+//    public Set<Vak> getVakken() {
+//        return vakken;
+//    }
+//
+//    public void setVakken(Set<Vak> vakken) {
+//        this.vakken = vakken;
+//    }
 
     public String opleiding;
 

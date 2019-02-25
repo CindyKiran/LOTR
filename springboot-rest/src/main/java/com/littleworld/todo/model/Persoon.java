@@ -17,6 +17,17 @@ public class Persoon {
     private String place;
     @ManyToOne
     private University university;
+    @OneToMany
+    private Set<Vak> vakken;
+
+    public Set<Vak> getVakken() {
+        return vakken;
+    }
+
+    public void setVakken(Set<Vak> vakken) {
+        this.vakken = vakken;
+    }
+
 
     public long getId() { return id; }
 

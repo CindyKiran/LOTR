@@ -3,6 +3,7 @@ import { StudentService} from '../student.service';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Student} from '../Student';
 import { Router } from '@angular/router';
+import { OpleidingVakkenComponent } from '../opleiding-vakken/opleiding-vakken.component';
 
 @Component({
   selector: 'app-login',
@@ -40,8 +41,9 @@ export class Login implements OnInit {
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
     const opleiding = this.dataForm.controls['opleiding'].value;
+    const vakken=null;
 
-    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding, vakken)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
