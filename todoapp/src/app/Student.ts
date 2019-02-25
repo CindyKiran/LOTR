@@ -1,3 +1,5 @@
+import { Vak } from "./Vak";
+
 export class Student{
 
   id: Number = 0;
@@ -9,9 +11,10 @@ export class Student{
   creature: string;
   age: number;
   opleiding: string;
+  vakken: Vak[];
 
 
-  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: string) {
+  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: string, vakken: Vak[]) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -21,5 +24,6 @@ export class Student{
     this.creature = creature;
     this.age = age;
     this.opleiding = opleiding;
+    this.vakken = vakken;
   }
 }

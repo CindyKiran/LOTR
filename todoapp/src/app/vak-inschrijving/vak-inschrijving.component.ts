@@ -16,6 +16,7 @@ export class VakInschrijvingComponent implements OnInit {
 
   userOpleiding :String;
   userOpleidingId : number;
+  vakken : string;
   
   public getUser(){
     this.userOpleiding=localStorage.getItem('opleiding');
@@ -53,12 +54,11 @@ export class VakInschrijvingComponent implements OnInit {
   ngOnInit() {
     
     this.getUser();
-    this.test();
+    this.displayVakken();
   }
 
 
-  test(){
-
+  displayVakken(){
     this.opleidingService.displayVakken(this.userOpleidingId).subscribe(
       opleiding => {
         console.log(opleiding);
@@ -71,6 +71,10 @@ export class VakInschrijvingComponent implements OnInit {
   }
 
   
+
+  inschrijven(){
+    //code that tells MYSQL that you want to link the curret student_id with vak_id and docent_id
+  }
 }
 
 

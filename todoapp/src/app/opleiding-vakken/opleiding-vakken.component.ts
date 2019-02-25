@@ -35,7 +35,7 @@ export class OpleidingVakkenComponent implements OnInit {
     periode: ['', Validators.required],
     rasEis: ['', Validators.required],
     maxStudiepunten: ['', Validators.required],
-    docent: ['', Validators.required],
+    //docent: ['', Validators.required],
   });
 
 
@@ -61,12 +61,12 @@ export class OpleidingVakkenComponent implements OnInit {
     const maxStudiePunten = 5;
     const maxStudenten = 200;
     const isVerplicht = false;  
-    const docent = this.dataForm.controls['docent'].value;
+    //const docent = this.dataForm.controls['docent'].value;
     const rasEis = this.form.value.orders
       .map((v, i) => v ? this.orders[i].id : null)
       .filter(v => v !== null);
 
-   this.vakService.saveVak(new Vak(0, naam, periode,maxStudiePunten, maxStudenten,isVerplicht, docent,rasEis)).subscribe();
+   this.vakService.saveVak(new Vak(0, naam, periode,maxStudiePunten, maxStudenten,isVerplicht,rasEis)).subscribe();
     
   }
 

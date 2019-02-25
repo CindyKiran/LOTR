@@ -6,14 +6,14 @@ import java.util.Set;
 @Entity
 public class Vak {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String naam;
     private int periode;
     private int maxStudiePunten = 5;
     private int maxStudenten;
     private boolean isVerplicht;
-    private String docent;
+    //private String docent;
     private String rasEis[];
     @ManyToMany
     private Set<Opleiding> opleidingen;
@@ -70,13 +70,13 @@ public class Vak {
         isVerplicht = verplicht;
     }
 
-    public String getDocent() {
-        return docent;
-    }
+//    public String getDocent() {
+//        return docent;
+//    }
 
-    public void setDocent(String docent) {
-        this.docent = docent;
-    }
+//    public void setDocent(String docent) {
+//        this.docent = docent;
+//    }
 
     public String[] getRasEis() {
         return rasEis;

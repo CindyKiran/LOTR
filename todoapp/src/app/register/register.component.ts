@@ -59,6 +59,7 @@ export class RegisterComponent implements OnInit {
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
     const opleiding = this.dataForm.controls['opleiding'].value;
+    const vakken = null;
 
     var regSuccess: boolean;
     regSuccess = false;
@@ -69,7 +70,7 @@ export class RegisterComponent implements OnInit {
       console.log("error!!!")
       emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe();
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding, vakken)).subscribe();
       regSuccess = true;
     }
   }
