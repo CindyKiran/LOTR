@@ -69,8 +69,6 @@ export class VakInschrijvingComponent implements OnInit {
       console.log(err);
     });
   }
-
-  
 }
 
 
