@@ -4,6 +4,9 @@ import {Opleiding} from '../Opleiding';
 import {OpleidingService} from '../opleiding.service';
 import { VakService } from '../vak.service';
 import { Vak } from '../Vak';
+import { StudentService } from '../student.service';
+import { Student } from '../Student';
+import { VakInschrijvingComponent } from '../vak-inschrijving/vak-inschrijving.component';
 
 @Component({
   selector: 'app-opleiding-vakken',
@@ -21,7 +24,7 @@ export class OpleidingVakkenComponent implements OnInit {
     { id: "orc", name: 'Orc' },
   ];
 
-  constructor(public fb: FormBuilder, public opleidingService: OpleidingService, public vakService: VakService, private formBuilder: FormBuilder) {
+  constructor(public fb: FormBuilder,public vak: Vak, public opleidingService: OpleidingService, public vakService: VakService, public studentService: StudentService, private formBuilder: FormBuilder) {
     const controls = this.orders.map(c => new FormControl(false));
     controls[0].setValue(true);
 
@@ -55,20 +58,25 @@ export class OpleidingVakkenComponent implements OnInit {
     
   }
 
+
   public saveVak(event) {
     const naam = this.dataForm.controls['naam'].value;
     const periode = this.dataForm.controls['periode'].value;
     const maxStudiePunten = 5;
     const maxStudenten = 200;
-    const isVerplicht = false;  
     //const docent = this.dataForm.controls['docent'].value;
     const rasEis = this.form.value.orders
       .map((v, i) => v ? this.orders[i].id : null)
       .filter(v => v !== null);
-
-   this.vakService.saveVak(new Vak(0, naam, periode,maxStudiePunten, maxStudenten,isVerplicht,rasEis)).subscribe();
     
+    const isVerplicht = true;
+    const isIngeschreven = false;
+
+   this.vakService.saveVak(new Vak(0, naam, periode,maxStudiePunten, maxStudenten,isVerplicht,rasEis, isIngeschreven)).subscribe();
   }
+
+
+ 
 
   minSelectedCheckboxes(min = 1) {
     const validator: ValidatorFn = (formArray: FormArray) => {

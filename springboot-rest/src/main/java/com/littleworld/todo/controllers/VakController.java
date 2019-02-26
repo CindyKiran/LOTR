@@ -1,5 +1,7 @@
 package com.littleworld.todo.controllers;
 
+import com.littleworld.todo.model.Opleiding;
+import com.littleworld.todo.model.Student;
 import com.littleworld.todo.model.Vak;
 import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,6 @@ public class VakController {
     public Iterable<Vak> vakByOpleiding(@PathVariable int opleidingen_id){
         return vakService.findByOpleidingen_Id(opleidingen_id);
     }
-
 
     @RequestMapping(value = "/pageVak", method = RequestMethod.GET)
     public String page(){

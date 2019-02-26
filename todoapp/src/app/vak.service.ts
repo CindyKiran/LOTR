@@ -24,6 +24,11 @@ export class VakService {
     );
   }
 
+  verplichteVakken(id: string): Observable<Vak>  {
+    console.log(id);
+    return this.http.get<any>('http://localhost:8080/opleiding/'+id);
+  }
+
   private handleError<Vak> (operation = 'operation', result?: Vak) {
     return (error: any): Observable<Vak> => {
       console.error(error);
