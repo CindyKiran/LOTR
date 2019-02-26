@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentService} from '../student.service';
-class FileHomeWork {
-  pending: boolean = false;
-  status: string = 'init';
-  constructor(public src: string, public file: File) {}
-}
+import {PdfViewerModule} from 'ng2-pdf-viewer';
+import {PdfViewerComponent} from 'ng2-pdf-viewer';
 
 @Component({
   selector: 'app-homework',
@@ -12,38 +9,40 @@ class FileHomeWork {
   styleUrls: ['./homework.component.css']
 })
 export class HomeworkComponent implements OnInit {
-  selectedFile: FileHomeWork;
+  uploadSuccess: boolean;
 
   constructor(private studentService: StudentService) { }
-
   ngOnInit() {
   }
 
-  private onSuccess() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'ok';
+  public path;
+  url: any;
+  public message: string;
+
+  preview(files) {
+    if (files.length === 0)
+      return;
+
+    var reader = new FileReader();
+    this.path = files;
+
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.url = reader.result;
+      this.uploadSuccess = true;
+    };
+    console.log(files);
+    this.studentService.uploadFile(files).subscribe(
+      (res)=>{
+      },
+      (err)=>{;
+      })
   }
 
-  private onError() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'fail';
-    this.selectedFile.src = '';
-  }
+  pdfSrc: string = '/pdf-test.pdf';
 
-  processFile(fileInput: any){
-    const file : File = fileInput.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener('load', (event : any) => {
-      this.selectedFile = new FileHomeWork(event.target.result, file);
-      this.studentService.uploadFile(this.selectedFile.file).subscribe(
-        (res)=>{
-          this.onSuccess();
-        },
-        (err)=>{
-          this.onError();
-        })
-    });
-    reader.readAsDataURL(file);
+  upload(fileInput: any) {
+    var file : File = fileInput.files[0];
+    file = fileInput.target.files[0];
   }
 }

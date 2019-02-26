@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'register-opleiding-vak', component: OpleidingVakkenComponent},
   {path: 'vakInschrijving', component: VakInschrijvingComponent},
   {path: 'homework', component: HomeworkComponent},
+  {path: 'opleidingVakken', component: OpleidingVakkenComponent},
 
 ];
 

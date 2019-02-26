@@ -13,6 +13,12 @@ import { DocentRegisterComponent } from './docent-register/docent-register.compo
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
 import { HomeworkComponent } from './homework/homework.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { CreditsComponent } from './credits/credits.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { ContactComponent } from './contact/contact.component';
+import { NavComponent } from './nav/nav.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -25,12 +31,18 @@ import { HomeworkComponent } from './homework/homework.component';
     OpleidingVakkenComponent,
     VakInschrijvingComponent,
     HomeworkComponent,
+    ScheduleComponent,
+    CreditsComponent,
+    PersonalInfoComponent,
+    ContactComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
