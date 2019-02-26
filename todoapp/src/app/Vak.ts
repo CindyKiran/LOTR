@@ -11,8 +11,9 @@ export class Vak{
     //docent: string;
     opleidingen : Opleiding[];
     rasEis: string;
+    isIngeschreven: boolean;
 
-    constructor(id: number, naam : string, periode: number, maxStudiePunten: number, maxStudenten: number, isVerplicht : boolean, rasEis: string){
+    constructor(id: number, naam : string, periode: number, maxStudiePunten: number, maxStudenten: number, isVerplicht : boolean, rasEis: string, isIngeschreven: boolean){
       this.id = id;
       this.naam = naam;
       this.periode = periode;
@@ -21,6 +22,7 @@ export class Vak{
       this.isVerplicht = isVerplicht;
       //this.docent = docent;
       this.rasEis = rasEis;
+      this.isIngeschreven = isIngeschreven;
     }
   }
   

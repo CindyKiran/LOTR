@@ -72,8 +72,9 @@ export class VakInschrijvingComponent implements OnInit {
 
   
 
-  inschrijven(){
-    //code that tells MYSQL that you want to link the curret student_id with vak_id and docent_id
+  inschrijven(event){
+    console.log("ingeschreven!");
+    return true;
   }
 }
 

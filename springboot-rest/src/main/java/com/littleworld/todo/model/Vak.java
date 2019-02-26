@@ -13,6 +13,16 @@ public class Vak {
     private int maxStudiePunten = 5;
     private int maxStudenten;
     private boolean isVerplicht;
+    private boolean isIngeschreven;
+
+    public boolean isIngeschreven() {
+        return isIngeschreven;
+    }
+
+    public void setIngeschreven(boolean ingeschreven) {
+        isIngeschreven = ingeschreven;
+    }
+
     //private String docent;
     private String rasEis[];
     @ManyToMany
@@ -66,17 +76,9 @@ public class Vak {
         return isVerplicht;
     }
 
-    public void setVerplicht(boolean verplicht) {
-        isVerplicht = verplicht;
+    public void setVerplicht(boolean isVerplicht) {
+        this.isVerplicht = isVerplicht;
     }
-
-//    public String getDocent() {
-//        return docent;
-//    }
-
-//    public void setDocent(String docent) {
-//        this.docent = docent;
-//    }
 
     public String[] getRasEis() {
         return rasEis;
@@ -85,4 +87,5 @@ public class Vak {
     public void setRasEis(String[] rasEis) {
         this.rasEis = rasEis;
     }
+
 }

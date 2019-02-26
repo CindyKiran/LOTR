@@ -1,4 +1,5 @@
 import { Vak } from "./Vak";
+import { Opleiding } from "./Opleiding";
 
 export class Student{
 
@@ -10,11 +11,10 @@ export class Student{
   place: string;
   creature: string;
   age: number;
-  opleiding: string;
+  opleiding: Opleiding;
   vakken: Vak[];
 
-
-  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: string, vakken: Vak[]) {
+  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: Opleiding, vakken: Vak[]) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;

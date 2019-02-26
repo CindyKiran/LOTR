@@ -19,7 +19,6 @@ public class Opleiding {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private University university;
 
-
     @ManyToMany (mappedBy="opleidingen")
     private Set<Vak> vakken;
 
@@ -33,6 +32,10 @@ public class Opleiding {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public University getUniversity() {

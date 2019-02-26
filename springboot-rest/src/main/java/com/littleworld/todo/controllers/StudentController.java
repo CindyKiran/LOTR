@@ -1,7 +1,11 @@
 package com.littleworld.todo.controllers;
 
+import com.littleworld.todo.model.Opleiding;
 import com.littleworld.todo.model.Student;
+import com.littleworld.todo.model.Vak;
+import com.littleworld.todo.services.OpleidingService;
 import com.littleworld.todo.services.StudentService;
+import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -16,10 +20,24 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @Autowired
+    private OpleidingService opleidingService;
+
+    @Autowired
+    private VakService vakService;
+
     @ResponseBody
     @RequestMapping(value = "/student", method = RequestMethod.POST)
     public long create(@RequestBody Student student) {
-        return studentService.save(student).getId();
+        Optional<Opleiding> optionalOpleiding = this.opleidingService.findById(student.getOpleiding().getId()); // dit is slecbt
+        if(optionalOpleiding.isPresent()) {
+            Opleiding bestaande = optionalOpleiding.get();
+            student.setOpleiding(bestaande);
+            return studentService.save(student).getId();
+        }
+        else {
+            return -1;
+        }
     }
 
     @ResponseBody
@@ -67,4 +85,5 @@ public class StudentController {
     public void updateStudent(@PathVariable long id) {
         studentService.deleteById(id);
     }
+
 }

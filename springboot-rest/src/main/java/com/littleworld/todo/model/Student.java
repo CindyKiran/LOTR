@@ -1,9 +1,6 @@
 package com.littleworld.todo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -20,13 +17,24 @@ public class Student extends Persoon {
 //        this.vakken = vakken;
 //    }
 
-    public String opleiding;
+//    public String opleiding;
+//
+//    public String getOpleiding() {
+//        return opleiding;
+//    }
+//
+//    public void setOpleiding(String opleiding) {
+//        this.opleiding = opleiding;
+//    }
 
-    public String getOpleiding() {
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Opleiding opleiding;
+
+    public Opleiding getOpleiding() {
         return opleiding;
     }
 
-    public void setOpleiding(String opleiding) {
+    public void setOpleiding(Opleiding opleiding) {
         this.opleiding = opleiding;
     }
 
