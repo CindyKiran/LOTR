@@ -71,8 +71,6 @@ export class VakInschrijvingComponent implements OnInit {
     });
   }
 
-  
-
   inschrijven(event){
     console.log("ingeschreven!");
     var naam;

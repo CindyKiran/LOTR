@@ -11,7 +11,7 @@
     <label for="psw"><b>Password</b></label>
     <input formControlName="passWord" type="password" placeholder="Enter Password" id="psw" name="psw" required>
 
-    <p [class.red]=redError>Invalid password or username</p>
+    <p *ngIf="redError">Invalid password or username</p>
     <button type="submit">Login</button>
 
     <button routerLink="/register">Register</button>

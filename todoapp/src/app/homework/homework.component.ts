@@ -6,6 +6,7 @@ class FileHomeWork {
   constructor(public src: string, public file: File) {}
 }
 
+
 @Component({
   selector: 'app-homework',
   templateUrl: './homework.component.html',

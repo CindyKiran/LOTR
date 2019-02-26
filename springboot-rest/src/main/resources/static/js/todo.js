@@ -1,6 +1,4 @@
-
 angular.module('todo', []).controller("TodoCtrl", function($scope, $http) {
-
   $scope.load = function ()  {
     $http.get('todo').
       success(function(data, status, headers, config) {
@@ -25,4 +23,3 @@ angular.module('todo', []).controller("TodoCtrl", function($scope, $http) {
     });
   };
 });
-

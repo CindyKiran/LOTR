@@ -6,13 +6,13 @@
   <div>
       <form [formGroup]="dataForm">
       <label><b>Which education degree</b></label> <br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Sorcerer Apprentice">Sorcerer Apprentice<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Healer">Healer<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Warrior">Warrior<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Tanker">Tanker<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Ranger">Ranger<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Assassin">Assassin<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="Political Scientist">Political Scientist<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Sorcerer">Sorcerer Apprentice<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Healer">Healer<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Warrior">Warrior<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Tanker">Tanker<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Ranger">Ranger<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Assassin">Assassin<br>
+      <input type="radio" formControlName="naam"  name="naam" value="Scientist">Political Scientist<br>
       </form>
     </div>
 
@@ -20,7 +20,7 @@
   <div>
     <form [formGroup]="form">
         <b>What kind can follow this education:</b><br>
-        <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; 
+        <label formArrayName="orders" *ngFor="let order of orders;
         let i = index">
           <input type="checkbox" [formControlName]="i">
           {{orders[i].name}}
@@ -45,46 +45,46 @@
   <div>
       <form [formGroup]="dataForm">
       <label><b>Select course</b></label> <br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="healingMagic">Magic Healing<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="defenseMagic">Defense Magic<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="elementalist">Elementalist<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="necromancer">Necromancer<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="witchcraft">Witchcraft<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="wand">Wand and Sceptor Mastery<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="magic">Magic Beginner<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="healingNoMagic">Healing without magic<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="defence">Defensive Tactics<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="biology">Biology<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="chemistry">Chemistry<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="history">History<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="pychology">Psychology<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="shadowplay">Shadowplay<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="fBootcamp">Physical Bootcamp<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="weapon">Weapon skills<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="archery">Archery Advanced<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="fightScience">Figth Science<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="closeCombat">Close Combat Mastery<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="shield">Shield mastery<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="mBootcamp">Muscle Build Bootcamp<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="alchemy">Alchemy<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="camouflage">Camouflage Mastery<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="knife">Knife Use Mastery<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="night">Night training<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="physics">Physics<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="horse">Horse Riding<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="politics">Politics<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="admin">Public administration<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="philosophy">Philosophy<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="math">Mathematics<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="literature">Literature<br>
-      <input type="radio" formControlName="naam"  id="naam" name="naam" value="language">Languages<br>
+      <input type="radio" formControlName="naam"  name="naam" value="healingMagic">Magic Healing<br>
+      <input type="radio" formControlName="naam"  name="naam" value="defenseMagic">Defense Magic<br>
+      <input type="radio" formControlName="naam"  name="naam" value="elementalist">Elementalist<br>
+      <input type="radio" formControlName="naam"  name="naam" value="necromancer">Necromancer<br>
+      <input type="radio" formControlName="naam"  name="naam" value="witchcraft">Witchcraft<br>
+      <input type="radio" formControlName="naam"  name="naam" value="wand">Wand and Sceptor Mastery<br>
+      <input type="radio" formControlName="naam"  name="naam" value="magic">Magic Beginner<br>
+      <input type="radio" formControlName="naam"  name="naam" value="healingNoMagic">Healing without magic<br>
+      <input type="radio" formControlName="naam"  name="naam" value="defence">Defensive Tactics<br>
+      <input type="radio" formControlName="naam"  name="naam" value="biology">Biology<br>
+      <input type="radio" formControlName="naam"  name="naam" value="chemistry">Chemistry<br>
+      <input type="radio" formControlName="naam"  name="naam" value="history">History<br>
+      <input type="radio" formControlName="naam"  name="naam" value="pychology">Psychology<br>
+      <input type="radio" formControlName="naam"  name="naam" value="shadowplay">Shadowplay<br>
+      <input type="radio" formControlName="naam"  name="naam" value="fBootcamp">Physical Bootcamp<br>
+      <input type="radio" formControlName="naam"  name="naam" value="weapon">Weapon skills<br>
+      <input type="radio" formControlName="naam"  name="naam" value="archery">Archery Advanced<br>
+      <input type="radio" formControlName="naam"  name="naam" value="fightScience">Figth Science<br>
+      <input type="radio" formControlName="naam"  name="naam" value="closeCombat">Close Combat Mastery<br>
+      <input type="radio" formControlName="naam"  name="naam" value="shield">Shield mastery<br>
+      <input type="radio" formControlName="naam"  name="naam" value="mBootcamp">Muscle Build Bootcamp<br>
+      <input type="radio" formControlName="naam"  name="naam" value="alchemy">Alchemy<br>
+      <input type="radio" formControlName="naam"  name="naam" value="camouflage">Camouflage Mastery<br>
+      <input type="radio" formControlName="naam"  name="naam" value="knife">Knife Use Mastery<br>
+      <input type="radio" formControlName="naam"  name="naam" value="night">Night training<br>
+      <input type="radio" formControlName="naam"  name="naam" value="physics">Physics<br>
+      <input type="radio" formControlName="naam"  name="naam" value="horse">Horse Riding<br>
+      <input type="radio" formControlName="naam"  name="naam" value="politics">Politics<br>
+      <input type="radio" formControlName="naam"  name="naam" value="admin">Public administration<br>
+      <input type="radio" formControlName="naam"  name="naam" value="philosophy">Philosophy<br>
+      <input type="radio" formControlName="naam"  name="naam" value="math">Mathematics<br>
+      <input type="radio" formControlName="naam"  name="naam" value="literature">Literature<br>
+      <input type="radio" formControlName="naam"  name="naam" value="language">Languages<br>
       </form>
   </div>
     
 
     <form [formGroup]="form">
       <b>What kind can follow this course:</b><br>
-      <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; 
+      <label formArrayName="orders" *ngFor="let order of orders;
       let i = index">
         <input type="checkbox" [formControlName]="i">
         {{orders[i].name}}
