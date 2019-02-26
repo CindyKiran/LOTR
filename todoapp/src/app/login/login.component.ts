@@ -3,6 +3,8 @@ import { StudentService} from '../student.service';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Student} from '../Student';
 import { Router } from '@angular/router';
+import { OpleidingVakkenComponent } from '../opleiding-vakken/opleiding-vakken.component';
+import { Opleiding } from '../Opleiding';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,6 @@ export class Login implements OnInit {
     place:  ['', Validators.required],
     creature: ['', Validators.required],
     age: ['', Validators.required],
-    opleiding: ['', Validators.required],
   });
 
   ngOnInit() {
@@ -37,9 +38,10 @@ export class Login implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
-    const opleiding = this.dataForm.controls['opleiding'].value;
+    const vakken=null;
+    var opleiding:Opleiding;
 
-    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe(
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
@@ -47,7 +49,7 @@ export class Login implements OnInit {
           localStorage.setItem('first', result.firstName);
           localStorage.setItem('last', result.lastName);
           localStorage.setItem('userName', result.userName);
-          localStorage.setItem('opleiding', result.opleiding);
+          localStorage.setItem('id', result.id.toLocaleString());
           this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])

@@ -1,10 +1,14 @@
 package com.littleworld.todo.controllers;
 
+import com.littleworld.todo.model.Opleiding;
 import com.littleworld.todo.model.Student;
+import com.littleworld.todo.model.Vak;
+import com.littleworld.todo.services.OpleidingService;
 import com.littleworld.todo.services.StudentService;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 import org.apache.catalina.connector.Response;
+import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,14 +28,32 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class StudentController {
+//    @Autowired
+//    private StudentService studentService;
+
+    @Autowired
+    private OpleidingService opleidingService;
+
+    @Autowired
+    private VakService vakService;
+
     @Autowired
     private StudentService studentService;
     private static String UPLOADED_FOLDER = "C://Users//Denisa//Downloads";
 
+
     @ResponseBody
     @RequestMapping(value = "/student", method = RequestMethod.POST)
     public long create(@RequestBody Student student) {
-        return studentService.save(student).getId();
+        Optional<Opleiding> optionalOpleiding = this.opleidingService.findById(student.getOpleiding().getId()); // dit is slecbt
+        if(optionalOpleiding.isPresent()) {
+            Opleiding bestaande = optionalOpleiding.get();
+            student.setOpleiding(bestaande);
+            return studentService.save(student).getId();
+        }
+        else {
+            return -1;
+        }
     }
 
     @ResponseBody
@@ -73,5 +95,39 @@ public class StudentController {
     @RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)
     public void updateStudent(@PathVariable long id) {
         studentService.deleteById(id);
+    }
+
+    @PostMapping("uploadFile")
+    public ResponseEntity<?> uploadFile(
+            @RequestParam("file") MultipartFile uploadfile) {
+
+
+        if (uploadfile.isEmpty()) {
+            return new ResponseEntity("please select a file!", HttpStatus.OK);
+        }
+
+        try {
+
+            saveUploadedFiles(Arrays.asList(uploadfile));
+
+        } catch (IOException e) {
+            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+
+        return new ResponseEntity("Successfully uploaded - " +
+                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+    }
+    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
+        for (MultipartFile file : files) {
+
+            if (file.isEmpty()) {
+                continue;
+            }
+
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            System.out.println(file.getOriginalFilename());
+            Files.write(path, bytes);
+        }
     }
 }

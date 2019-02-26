@@ -7,7 +7,7 @@ import java.util.Set;
 public class Opleiding {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String naam;
     private String rasEis[];
@@ -15,8 +15,10 @@ public class Opleiding {
     private int maxStudiePunten = 50;
     @OneToMany
     private Set<Docent> docenten;
+
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private University university;
+
     @ManyToMany (mappedBy="opleidingen")
     private Set<Vak> vakken;
 
@@ -30,6 +32,10 @@ public class Opleiding {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public University getUniversity() {

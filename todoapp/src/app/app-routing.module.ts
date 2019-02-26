@@ -13,6 +13,7 @@ import {PersonalinfoComponent} from './personalinfo/personalinfo.component';
 import {ScheduleComponent} from './schedule/schedule.component';
 import {StudypointsComponent} from './studypoints/studypoints.component';
 
+
 const routes: Routes = [
   {path: '', component: Login},
   {path: 'blackboard', component: BlackboardComponent},
@@ -26,7 +27,6 @@ const routes: Routes = [
   {path: 'personalinfo', component: PersonalinfoComponent},
   {path: 'schedule', component: ScheduleComponent},
   {path: 'studypoints', component: StudypointsComponent}
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

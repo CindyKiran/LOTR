@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Student} from '../Student';
 import {StudentService} from '../student.service';
 import { Router } from '@angular/router';
+import { Opleiding } from '../Opleiding';
 
 @Component({
   selector: 'app-register',
@@ -60,14 +61,40 @@ export class RegisterComponent implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
+    const vakken = null;
     const opleiding = this.dataForm.controls['opleiding'].value;
 
+    var opleidingID;
+  
+    var regSuccess: boolean;
+    regSuccess = false;
+    var emptyBoxes: boolean;
+    emptyBoxes = false;
+
+    //convert opleiding string to opleidingID number
+    if(opleiding == "sorcerer"){
+      opleidingID = 1;
+    } else if (opleiding == "healer"){
+      opleidingID = 2;
+    } else if (opleiding == "scientist"){
+      opleidingID = 3;
+    } else if (opleiding == "warrior"){
+      opleidingID = 4;
+    } else if (opleiding == "tanker"){
+      opleidingID = 5;
+    } else if (opleiding == "ranger"){
+      opleidingID = 6;
+    } else {
+      opleidingID =7;
+    }
+
+    //check if answer left blank
     if (userName.length == 0 || lastName == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding)).subscribe();
-      this.regSuccess = true;
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken)).subscribe();
+      regSuccess = true;
     }
   }
 }

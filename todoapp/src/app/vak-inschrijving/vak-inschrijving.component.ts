@@ -5,6 +5,7 @@ import { Opleiding } from '../Opleiding';
 import { StudentService } from '../student.service';
 import { Student } from '../Student';
 import { getDefaultService } from 'selenium-webdriver/opera';
+import { VakService } from '../vak.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class VakInschrijvingComponent implements OnInit {
 
   userOpleiding :String;
   userOpleidingId : number;
+  vakken : string;
   
   public getUser(){
     this.userOpleiding=localStorage.getItem('opleiding');
@@ -43,7 +45,7 @@ export class VakInschrijvingComponent implements OnInit {
     }
   }
 
-  constructor(private opleidingService: OpleidingService, private studentService: StudentService) {
+  constructor(private opleidingService: OpleidingService, private studentService: StudentService, private vakService: VakService) {
 
   }
 
@@ -53,12 +55,11 @@ export class VakInschrijvingComponent implements OnInit {
   ngOnInit() {
     
     this.getUser();
-    this.test();
+    this.displayVakken();
   }
 
 
-  test(){
-
+  displayVakken(){
     this.opleidingService.displayVakken(this.userOpleidingId).subscribe(
       opleiding => {
         console.log(opleiding);
@@ -68,6 +69,20 @@ export class VakInschrijvingComponent implements OnInit {
     err => {
       console.log(err);
     });
+  }
+
+  inschrijven(event){
+    console.log("ingeschreven!");
+    var naam;
+    var periode;
+    var maxStudiePunten;
+    var maxStudenten;
+    var isVerplicht;
+    var rasEis;
+    var idString = localStorage.getItem('id');
+    var idNumber = Number(idString);
+    console.log(idNumber);
+    this.vakService.saveVak(new Vak(idNumber, naam, periode,maxStudiePunten, maxStudenten,isVerplicht,rasEis, true)).subscribe();
   }
 }
 
