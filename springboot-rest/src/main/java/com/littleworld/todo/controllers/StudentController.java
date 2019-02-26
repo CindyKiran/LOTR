@@ -74,38 +74,4 @@ public class StudentController {
     public void updateStudent(@PathVariable long id) {
         studentService.deleteById(id);
     }
-
-    @PostMapping("uploadFile")
-    public ResponseEntity<?> uploadFile(
-            @RequestParam("file") MultipartFile uploadfile) {
-
-
-        if (uploadfile.isEmpty()) {
-            return new ResponseEntity("please select a file!", HttpStatus.OK);
-        }
-
-        try {
-
-            saveUploadedFiles(Arrays.asList(uploadfile));
-
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
-        }
-
-        return new ResponseEntity("Successfully uploaded - " +
-                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
-    }
-    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
-        for (MultipartFile file : files) {
-
-            if (file.isEmpty()) {
-                continue;
-            }
-
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            System.out.println(file.getOriginalFilename());
-            Files.write(path, bytes);
-        }
-    }
 }
