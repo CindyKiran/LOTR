@@ -37,4 +37,10 @@ export class StudentService {
     ;
   }
 
+  public uploadFile(file: File): Observable<any>{
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post('http://localhost:8080/uploadFile/', formData);
+  }
+
 }

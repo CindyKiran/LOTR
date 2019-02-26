@@ -7,24 +7,36 @@ import com.littleworld.todo.services.OpleidingService;
 import com.littleworld.todo.services.StudentService;
 import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@Controller
+@RestController
 public class StudentController {
-    @Autowired
-    private StudentService studentService;
+//    @Autowired
+//    private StudentService studentService;
 
     @Autowired
     private OpleidingService opleidingService;
 
     @Autowired
     private VakService vakService;
+
+    @Autowired
+    private StudentService studentService;
+    private static String UPLOADED_FOLDER = "C://Users//Cindy//Downloads";
 
     @ResponseBody
     @RequestMapping(value = "/student", method = RequestMethod.POST)
@@ -86,4 +98,37 @@ public class StudentController {
         studentService.deleteById(id);
     }
 
+    @PostMapping("uploadFile")
+    public ResponseEntity<?> uploadFile(
+            @RequestParam("file") MultipartFile uploadfile) {
+
+
+        if (uploadfile.isEmpty()) {
+            return new ResponseEntity("please select a file!", HttpStatus.OK);
+        }
+
+        try {
+
+            saveUploadedFiles(Arrays.asList(uploadfile));
+
+        } catch (IOException e) {
+            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+
+        return new ResponseEntity("Successfully uploaded - " +
+                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+    }
+    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
+        for (MultipartFile file : files) {
+
+            if (file.isEmpty()) {
+                continue;
+            }
+
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            System.out.println(file.getOriginalFilename());
+            Files.write(path, bytes);
+        }
+    }
 }
