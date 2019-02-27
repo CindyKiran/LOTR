@@ -92,6 +92,18 @@ public class StudentController {
         return studentService.save(student).getId();
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/student/{studentId}/vak/{vakId}", method = RequestMethod.GET)
+    public Student updateVak(@PathVariable long studentId,@PathVariable long vakId) {
+        Optional <Student>  student = this.studentService.findById(studentId);
+        Optional<Vak> vak = this.vakService.findById(vakId);
+        if(student.isPresent() && vak.isPresent()){
+            student.get().addIngeschrevenVakken(vak.get());
+            return studentService.save(student.get());
+        }
+        return null;
+    }
+
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)
     public void updateStudent(@PathVariable long id) {

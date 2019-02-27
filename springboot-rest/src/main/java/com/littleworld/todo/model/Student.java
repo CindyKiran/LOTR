@@ -33,6 +33,7 @@ public class Student extends Persoon {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Opleiding opleiding;
 
+    @ManyToMany
     private List<Vak> ingeschrevenVakken = new ArrayList<>();
 
     public List<Vak> getIngeschrevenVakken() {
@@ -41,6 +42,20 @@ public class Student extends Persoon {
 
     public void setIngeschrevenVakken(List<Vak> ingeschrevenVakken) {
         this.ingeschrevenVakken = ingeschrevenVakken;
+    }
+
+    public void addIngeschrevenVakken(Vak vak){
+        for(Vak v : ingeschrevenVakken ) {
+            if(v.getId()== vak.getId()) {
+                return;
+            }
+        }
+        for(Vak v : getOpleiding().getVakken()){
+            if(v.getId() == vak.getId()){
+                this.ingeschrevenVakken.add(vak);
+                return;
+            }
+        }
     }
 
     public Opleiding getOpleiding() {

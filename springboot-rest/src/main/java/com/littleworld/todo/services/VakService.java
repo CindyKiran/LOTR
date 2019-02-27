@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VakService extends CrudRepository<Vak, Long> {
     Iterable<Vak>findByOpleidingen_Id(int opleiding_id);
-    //Iterable<Vak>findByIsIngeschreven(boolean ingeschreven);
     Iterable<Vak>findByRasEis(Vak rasEis[]);
 }
