@@ -42,13 +42,12 @@ export class StudentService {
     ;
   }
 
-  testing(){
-    return this.http.put('http://localhost:8080/student/50',
-    {
-      "id": "50",
-      "firstName":  "Barry",
-      "lastName":  "Poter",
-    }).pipe();
+  inschrijvenVak(studentId, vakId){
+    return this.http.get('http://localhost:8080/student/'+studentId+'/vak/'+vakId)
+  }
+
+  displayUser(id: number): Observable<Student>  {
+    return this.http.get<any>('http://localhost:8080/student/'+id);
   }
 
   public uploadFile(file: File): Observable<any>{

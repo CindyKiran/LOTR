@@ -41,9 +41,10 @@ export class Login implements OnInit {
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
     const vakken=null;
+    const ingeschrevenVakken =null;
     var opleiding:Opleiding;
 
-    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken)).subscribe(
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken, ingeschrevenVakken)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {

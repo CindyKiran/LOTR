@@ -13,6 +13,7 @@ import { DocentRegisterComponent } from './docent-register/docent-register.compo
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
 import { HomeworkComponent } from './homework/homework.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HomeworkComponent } from './homework/homework.component';
     OpleidingVakkenComponent,
     VakInschrijvingComponent,
     HomeworkComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

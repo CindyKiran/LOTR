@@ -18,33 +18,39 @@ export class VakInschrijvingComponent implements OnInit {
   userOpleiding :String;
   userOpleidingId : number;
   vakken : string;
-  text: String = "Inschrijven?";
+  text: String = "Inschrijven";
 
   ngOnInit() {
     
-    this.getUser();
+    this.getUserOpleiding();
     this.displayVakken();
     //this.inschrijven();
   }
+
+  // public changeButton(vak : Vak, student:Student){
+  //   if(vak.id == student.ingeschrevenVakken.)
+  // }
   
-  public getUser(){
+  //convert string opleiding to number
+  public getUserOpleiding(){
     this.userOpleiding=localStorage.getItem('opleiding');
-    if(this.userOpleiding == 'sorcerer'){
+    console.log("check opleiding again:" + this.userOpleiding);
+    if(this.userOpleiding == '1'){
       this.userOpleidingId = 1;
       console.log(this.userOpleidingId);
-    } else if (this.userOpleiding == 'healer'){
+    } else if (this.userOpleiding == '2'){
       this.userOpleidingId = 2;
       console.log(this.userOpleidingId);
-    } else if (this.userOpleiding == 'warrior'){
+    } else if (this.userOpleiding == '3'){
       this.userOpleidingId = 3;
       console.log(this.userOpleidingId);
-    } else if (this.userOpleiding == 'tanker'){
+    } else if (this.userOpleiding == '4'){
       this.userOpleidingId = 4;
       console.log(this.userOpleidingId);
-    } else if (this.userOpleiding == 'ranger'){
+    } else if (this.userOpleiding == '5'){
       this.userOpleidingId = 5;
       console.log(this.userOpleidingId);
-    } else if (this.userOpleiding == 'assassin'){
+    } else if (this.userOpleiding == '6'){
       this.userOpleidingId = 6;
       console.log(this.userOpleidingId);
     } else{
@@ -54,11 +60,9 @@ export class VakInschrijvingComponent implements OnInit {
   }
 
   constructor(private opleidingService: OpleidingService, private studentService: StudentService, private vakService: VakService) {
-
   }
 
   opleiding: Opleiding;
-
 
   displayVakken(){
     this.opleidingService.displayVakken(this.userOpleidingId).subscribe(
@@ -74,25 +78,10 @@ export class VakInschrijvingComponent implements OnInit {
 
   inschrijven(vak: Vak){
    // this.vakService.updateVak(vak.id, vak).subscribe();
-   this.text = "Ingeschreven!";
-  }
-
-  inschrijven2(vak: Vak, student :Student){
-    var idString = localStorage.getItem('id');
-    var idNumber = Number(idString);
-    console.log(vak.id);
-    var user = localStorage.getItem('id');
-    var userNumber = Number(idString);
-    console.log(userNumber);
-
-    this.studentService.testing().subscribe(
-      data  => {
-        console.log("PUT Request is successful ", data);
-      },
-      error  => {
-        console.log("Rrror", error);
-      }
-      );
+   var studentIdString = localStorage.getItem('id');
+   var studentIdNumber = Number(studentIdString);
+   this.studentService.inschrijvenVak(studentIdNumber,vak.id).subscribe();
+   console.log("student id:" +studentIdNumber + "vak id:" + vak.id)
   }
 
 }
