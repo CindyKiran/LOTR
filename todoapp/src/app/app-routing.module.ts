@@ -7,8 +7,17 @@ import { LoginDocentComponent } from './login-docent/login-docent.component';
 import { DocentRegisterComponent } from './docent-register/docent-register.component';
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
+<<<<<<< HEAD
 import { HomeworkComponent } from './homework/homework.component';
 import { ProfileComponent } from './profile/profile.component';
+=======
+import {ContactComponent} from './contact/contact.component';
+import {HomeworkComponent} from './homework/homework.component';
+import {PersonalinfoComponent} from './personalinfo/personalinfo.component';
+import {ScheduleComponent} from './schedule/schedule.component';
+import {StudypointsComponent} from './studypoints/studypoints.component';
+
+>>>>>>> d42085d40de4de0da7a2c030a6bd54e9e40a8a39
 
 const routes: Routes = [
   {path: '', component: Login},
@@ -18,10 +27,18 @@ const routes: Routes = [
   {path: 'register-docent', component: DocentRegisterComponent},
   {path: 'register-opleiding-vak', component: OpleidingVakkenComponent},
   {path: 'vakInschrijving', component: VakInschrijvingComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'homework', component: HomeworkComponent},
+<<<<<<< HEAD
   {path: 'profile', component: ProfileComponent},
 
 ];
+=======
+  {path: 'personalinfo', component: PersonalinfoComponent},
+  {path: 'schedule', component: ScheduleComponent},
+  {path: 'studypoints', component: StudypointsComponent}
+  ];
+>>>>>>> d42085d40de4de0da7a2c030a6bd54e9e40a8a39
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

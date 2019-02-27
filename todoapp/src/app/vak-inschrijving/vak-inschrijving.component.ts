@@ -76,6 +76,7 @@ export class VakInschrijvingComponent implements OnInit {
     });
   }
 
+
   inschrijven(vak: Vak){
    // this.vakService.updateVak(vak.id, vak).subscribe();
    var studentIdString = localStorage.getItem('id');
@@ -83,7 +84,4 @@ export class VakInschrijvingComponent implements OnInit {
    this.studentService.inschrijvenVak(studentIdNumber,vak.id).subscribe();
    console.log("student id:" +studentIdNumber + "vak id:" + vak.id)
   }
-
 }
-
-

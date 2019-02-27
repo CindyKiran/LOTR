@@ -5,6 +5,9 @@ import com.littleworld.todo.model.Student;
 import com.littleworld.todo.model.Vak;
 import com.littleworld.todo.services.OpleidingService;
 import com.littleworld.todo.services.StudentService;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+import org.apache.catalina.connector.Response;
 import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -37,7 +40,8 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-    private static String UPLOADED_FOLDER = "C://Users//Cindy//Downloads";
+    private static String UPLOADED_FOLDER = "C://Users//Denisa//Downloads";
+
 
     @ResponseBody
     @RequestMapping(value = "/student", method = RequestMethod.POST)
@@ -68,11 +72,6 @@ public class StudentController {
     @RequestMapping(value = "/pageStudent", method = RequestMethod.GET)
     public String page() {
         return "student";
-    }
-
-    @ResponseBody
-    @RequestMapping (value = "/username/{userName}", method = RequestMethod.GET)
-    public List<Student> findbyUserName(@PathVariable String userName){return (List<Student>) studentService.findByUserName(userName);
     }
 
     @ResponseBody
