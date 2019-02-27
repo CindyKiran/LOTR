@@ -18,6 +18,14 @@ export class VakInschrijvingComponent implements OnInit {
   userOpleiding :String;
   userOpleidingId : number;
   vakken : string;
+  text: String = "Inschrijven?";
+
+  ngOnInit() {
+    
+    this.getUser();
+    this.displayVakken();
+    //this.inschrijven();
+  }
   
   public getUser(){
     this.userOpleiding=localStorage.getItem('opleiding');
@@ -52,13 +60,6 @@ export class VakInschrijvingComponent implements OnInit {
   opleiding: Opleiding;
 
 
-  ngOnInit() {
-    
-    this.getUser();
-    this.displayVakken();
-  }
-
-
   displayVakken(){
     this.opleidingService.displayVakken(this.userOpleidingId).subscribe(
       opleiding => {
@@ -71,21 +72,29 @@ export class VakInschrijvingComponent implements OnInit {
     });
   }
 
-  
+  inschrijven(vak: Vak){
+   // this.vakService.updateVak(vak.id, vak).subscribe();
+   this.text = "Ingeschreven!";
+  }
 
-  inschrijven(event){
-    console.log("ingeschreven!");
-    var naam;
-    var periode;
-    var maxStudiePunten;
-    var maxStudenten;
-    var isVerplicht;
-    var rasEis;
+  inschrijven2(vak: Vak, student :Student){
     var idString = localStorage.getItem('id');
     var idNumber = Number(idString);
-    console.log(idNumber);
-    this.vakService.saveVak(new Vak(idNumber, naam, periode,maxStudiePunten, maxStudenten,isVerplicht,rasEis, true)).subscribe();
+    console.log(vak.id);
+    var user = localStorage.getItem('id');
+    var userNumber = Number(idString);
+    console.log(userNumber);
+
+    this.studentService.testing().subscribe(
+      data  => {
+        console.log("PUT Request is successful ", data);
+      },
+      error  => {
+        console.log("Rrror", error);
+      }
+      );
   }
+
 }
 
 
