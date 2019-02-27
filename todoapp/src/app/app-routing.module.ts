@@ -7,7 +7,12 @@ import { LoginDocentComponent } from './login-docent/login-docent.component';
 import { DocentRegisterComponent } from './docent-register/docent-register.component';
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
-import { HomeworkComponent } from './homework/homework.component';
+import {ContactComponent} from './contact/contact.component';
+import {HomeworkComponent} from './homework/homework.component';
+import {PersonalinfoComponent} from './personalinfo/personalinfo.component';
+import {ScheduleComponent} from './schedule/schedule.component';
+import {StudypointsComponent} from './studypoints/studypoints.component';
+
 
 const routes: Routes = [
   {path: '', component: Login},
@@ -17,9 +22,12 @@ const routes: Routes = [
   {path: 'register-docent', component: DocentRegisterComponent},
   {path: 'register-opleiding-vak', component: OpleidingVakkenComponent},
   {path: 'vakInschrijving', component: VakInschrijvingComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'homework', component: HomeworkComponent},
-
-];
+  {path: 'personalinfo', component: PersonalinfoComponent},
+  {path: 'schedule', component: ScheduleComponent},
+  {path: 'studypoints', component: StudypointsComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class University {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id = 0;
     private String naam;
     private String plaats;

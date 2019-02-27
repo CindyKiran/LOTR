@@ -65,10 +65,6 @@ form {
     }
   }
 
-  .red {
-     color: red;
-  }
-
   p{
-    color:white;
+    color:red;
   }

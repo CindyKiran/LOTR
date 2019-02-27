@@ -72,12 +72,14 @@ export class VakInschrijvingComponent implements OnInit {
     });
   }
 
+
   inschrijven(vak: Vak){
    // this.vakService.updateVak(vak.id, vak).subscribe();
    this.text = "Ingeschreven!";
   }
 
   inschrijven2(vak: Vak, student :Student){
+
     var idString = localStorage.getItem('id');
     var idNumber = Number(idString);
     console.log(vak.id);

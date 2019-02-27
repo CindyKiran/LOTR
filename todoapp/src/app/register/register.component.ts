@@ -14,6 +14,8 @@ import { Opleiding } from '../Opleiding';
 export class RegisterComponent implements OnInit {
   constructor(public fb: FormBuilder, public studentService: StudentService, private router: Router) {
   }
+  regSuccess: boolean = false;
+  emptyBoxes: boolean = false;
   @Input()
     student: Student[];
 
@@ -61,6 +63,7 @@ export class RegisterComponent implements OnInit {
     const age = this.dataForm.controls['age'].value;
     const vakken = null;
     const opleiding = this.dataForm.controls['opleiding'].value;
+
     var opleidingID;
   
     var regSuccess: boolean;
@@ -88,7 +91,7 @@ export class RegisterComponent implements OnInit {
     //check if answer left blank
     if (userName.length == 0 || lastName == 0 || passWord.length == 0 || firstName == 0) {
       console.log("error!!!")
-      emptyBoxes = true;
+      this.emptyBoxes = true;
     } else {
       this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken)).subscribe();
       regSuccess = true;
