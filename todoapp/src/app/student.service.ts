@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { HttpClientModule } from  '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Student} from './Student';
 import {catchError} from 'rxjs/operators';
+import { Vak } from './Vak';
+import { Opleiding } from './Opleiding';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,8 @@ import {catchError} from 'rxjs/operators';
 export class StudentService {
 
   currentStudent : Student;
+  vak: Vak;
+
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Student[]>  {
@@ -37,10 +42,18 @@ export class StudentService {
     ;
   }
 
+  testing(){
+    return this.http.put('http://localhost:8080/student/50',
+    {
+      "id": "50",
+      "firstName":  "Barry",
+      "lastName":  "Poter",
+    }).pipe();
+  }
+
   public uploadFile(file: File): Observable<any>{
     const formData = new FormData();
     formData.append('file', file);
     return this.http.post('http://localhost:8080/uploadFile/', formData);
   }
-
 }

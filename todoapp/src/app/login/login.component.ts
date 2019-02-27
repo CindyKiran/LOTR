@@ -49,6 +49,7 @@ export class Login implements OnInit {
           localStorage.setItem('first', result.firstName);
           localStorage.setItem('last', result.lastName);
           localStorage.setItem('userName', result.userName);
+          localStorage.setItem('opleiding', result.opleiding.id.toLocaleString());
           localStorage.setItem('id', result.id.toLocaleString());
           this.router.navigate(['blackboard']);
         } else if (result === null) {

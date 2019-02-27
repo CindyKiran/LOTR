@@ -1,6 +1,9 @@
 package com.littleworld.todo.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,6 +32,16 @@ public class Student extends Persoon {
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Opleiding opleiding;
+
+    private List<Vak> ingeschrevenVakken = new ArrayList<>();
+
+    public List<Vak> getIngeschrevenVakken() {
+        return ingeschrevenVakken;
+    }
+
+    public void setIngeschrevenVakken(List<Vak> ingeschrevenVakken) {
+        this.ingeschrevenVakken = ingeschrevenVakken;
+    }
 
     public Opleiding getOpleiding() {
         return opleiding;

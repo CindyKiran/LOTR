@@ -13,6 +13,7 @@ public class Vak {
     private int maxStudiePunten = 5;
     private int maxStudenten;
     private boolean isVerplicht;
+
     private boolean isIngeschreven;
 
     public boolean isIngeschreven() {
