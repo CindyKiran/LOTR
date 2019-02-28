@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FileUploader, FileSelectDirective} from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -37,7 +37,8 @@ import { TeacherComponent } from './teachers/teacher/teacher.component';
     ContactComponent,
     NavComponent,
     TeachersComponent,
-    TeacherComponent
+    TeacherComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import {Student} from '../Student';
 import {StudentService} from '../student.service';
 import { Router } from '@angular/router';
 import { Opleiding } from '../Opleiding';
+import { University } from '../University';
 
 @Component({
   selector: 'app-register',
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit {
           if (this.student[x].userName == this.dataForm.controls['userName'].value) {
             userNameTaken = true;
             console.log("Username is already taken!");
+            alert("Username is already taken, choose another one")
             break;
           }
         }
@@ -64,8 +66,9 @@ export class RegisterComponent implements OnInit {
     const vakken = null;
     const ingeschrevenVakken = null;
     const opleiding = this.dataForm.controls['opleiding'].value;
-
+    var uploads : string;
     var opleidingID;
+    university:University;
   
     var regSuccess: boolean;
     regSuccess = false;
@@ -90,11 +93,11 @@ export class RegisterComponent implements OnInit {
     }
 
     //check if answer left blank
-    if (userName.length == 0 || lastName == 0 || passWord.length == 0 || firstName == 0) {
-      console.log("error!!!")
+    if(this.dataForm.invalid){  
+    console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken)).subscribe();
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken, uploads, (new University(0)))).subscribe();
       regSuccess = true;
     }
   }

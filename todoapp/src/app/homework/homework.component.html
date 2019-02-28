@@ -1,21 +1,16 @@
-<!--<app-nav></app-nav>-->
-<label class="image-upload-container btn btn-bwm">
-  <span>Select File</span>
-  <input #fileInput
-         type="file"
-         (change)="processFile(fileInput)">
-</label>
 
-<div *ngIf="selectedFile" class="img-preview-container">
-
-  <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
-       [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
-  </div>
-
-  <div *ngIf="selectedFile.pending" class="img-loading-overlay">
-    <div class="img-spinning-circle"></div>
-  </div>
-
-  <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> File Uploaded Succesfuly!</div>
-  <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> File Upload Failed!</div>
+<app-nav></app-nav>
+<body>
+<div >
+  <h1>Upload your homework here</h1><br/><br/>
+  <input type="file"
+         name="photo"
+         style="display: none;"
+         #fileInput
+         ng2FileSelect [uploader]="uploader"/><br/><br/>
+  <button type="button" (click)="fileInput.click()">Select a file</button><br/>
+  <button type="button" class="btn btn-success btn-s"
+          (click)="updateUploads(uploader)"
+          [disabled]="!uploader.getNotUploadedItems().length" >
+    Upload</button>
 </div>

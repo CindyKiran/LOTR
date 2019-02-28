@@ -64,7 +64,6 @@ public class DocentController {
         }
     }
 
-
     @ResponseBody
     @RequestMapping(value = "/docent/{id}", method = RequestMethod.PUT)
     public long updateDocent(@PathVariable long id, @RequestBody Docent docent) {

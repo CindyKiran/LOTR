@@ -28,8 +28,8 @@ export class StudentService {
   studentById(student: Student){
     return this.http.post('http://localhost:8080/student/{id}', student).pipe( );
   }
-  findbyUserName() :Observable <Student[]>{
-    return this.http.get<any>('http://localhost:8080/username/{userName}').pipe();
+  findbyUserName(userName: string) :Observable <Student[]>{
+    return this.http.get<any>('http://localhost:8080/username/'+userName).pipe();
   }
 
   authenticateStudent(student: Student) {
@@ -50,9 +50,8 @@ export class StudentService {
     return this.http.get<any>('http://localhost:8080/student/'+id);
   }
 
-  public uploadFile(file: File): Observable<any>{
-    const formData = new FormData();
-    formData.append('file', file);
-    return this.http.post('http://localhost:8080/uploadFile/', formData);
+  uploadFile(student: Student){
+    return this.http.post<any>('http://localhost:8080/uploadFile', student).pipe();
   }
+
 }

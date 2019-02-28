@@ -9,12 +9,19 @@ import java.util.Set;
 @Entity
 public class Student extends Persoon {
     private int studiePunten;
-
+    private String uploads;
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Opleiding opleiding;
-
     @ManyToMany
     private List<Vak> ingeschrevenVakken = new ArrayList<>();
+
+    public String getUploads() {
+        return uploads;
+    }
+
+    public void setUploads(String uploads) {
+        this.uploads = uploads;
+    }
 
     public List<Vak> getIngeschrevenVakken() {
         return ingeschrevenVakken;
