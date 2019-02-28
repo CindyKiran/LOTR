@@ -1,10 +1,13 @@
-<h1>Courses for {{opleiding?.naam}}</h1> 
 
+<app-nav></app-nav>
+<body>
+<h1> {{opleiding?.naam}}</h1> 
 <div *ngFor="let vak of opleiding?.vakken">
-  <p>Course: <b>{{ vak.naam }} </b><br>
-  Teacher: {{vak.docentNaam}} <br>
-
-  Period: {{ vak.periode }} <br>
-  Requirements: {{ vak.rasEis }}
-  <button (click)="inschrijven(vak)">{{text}}</button>
+  naam: {{ vak.naam }} <br>
+  <!--docent: {{ vak.docent }} <br>-->
+  periode: {{ vak.periode }} <br>
+  ras toegestaan: {{ vak.rasEis }}
+  <button (click)="inschrijven($event)">Inschrijven</button>
 </div>
+</body>
+

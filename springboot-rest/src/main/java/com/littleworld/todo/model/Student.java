@@ -10,6 +10,10 @@ import java.util.Set;
 public class Student extends Persoon {
     private int studiePunten;
 
+    private String uploads;
+
+
+
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Opleiding opleiding;
 
@@ -61,5 +65,13 @@ public class Student extends Persoon {
     }
     public void tentamenMaken(){
 
+    }
+
+    public String getUploads() {
+        return uploads;
+    }
+
+    public void setUploads(String uploads) {
+        this.uploads = uploads;
     }
 }

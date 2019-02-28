@@ -16,8 +16,9 @@ export class RegisterComponent implements OnInit {
   }
   regSuccess: boolean = false;
   emptyBoxes: boolean = false;
+
   @Input()
-    student: Student[];
+  student: Student[];
 
   public dataForm = this.fb.group({
     firstName:  ['', Validators.required],
@@ -64,13 +65,9 @@ export class RegisterComponent implements OnInit {
     const vakken = null;
     const ingeschrevenVakken = null;
     const opleiding = this.dataForm.controls['opleiding'].value;
+    var uploads: string;
 
     var opleidingID;
-  
-    var regSuccess: boolean;
-    regSuccess = false;
-    var emptyBoxes: boolean;
-    emptyBoxes = false;
 
     //convert opleiding string to opleidingID number
     if(opleiding == "sorcerer"){
@@ -94,7 +91,7 @@ export class RegisterComponent implements OnInit {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken)).subscribe();
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken, uploads)).subscribe();
       regSuccess = true;
     }
   }

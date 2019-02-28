@@ -38,11 +38,13 @@ export class Login implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
+    var uploads: string;
     const vakken=null;
     const ingeschrevenVakken =null;
     var opleiding:Opleiding;
 
-    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken, ingeschrevenVakken)).subscribe(
+
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken, ingeschrevenVakken, uploads)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
@@ -52,6 +54,7 @@ export class Login implements OnInit {
           localStorage.setItem('userName', result.userName);
           localStorage.setItem('opleiding', result.opleiding.id.toLocaleString());
           localStorage.setItem('id', result.id.toLocaleString());
+          localStorage.setItem('file', result.uploads);
           this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])

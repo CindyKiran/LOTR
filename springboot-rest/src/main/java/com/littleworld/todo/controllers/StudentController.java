@@ -40,7 +40,7 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-    private static String UPLOADED_FOLDER = "C://Users//Cindy//Downloads";
+    private static String UPLOADED_FOLDER = "C://Users//Denisa//Downloads";
 
 
     @ResponseBody
@@ -85,12 +85,17 @@ public class StudentController {
             return null;
         }
     }
+//    @ResponseBody
+//    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+//    public Student fileupload(@RequestBody Student student){
+//        return this.studentService.save(student);
+//    }
 
-    @ResponseBody
-    @RequestMapping(value = "/student/{id}", method = RequestMethod.PUT)
-    public long updateStudent(@PathVariable long id, @RequestBody Student student) {
-        return studentService.save(student).getId();
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/student/{id}", method = RequestMethod.PUT)
+//    public long updateStudent(@PathVariable long id, @RequestBody Student student) {
+//        return studentService.save(student).getId();
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/student/{studentId}/vak/{vakId}", method = RequestMethod.GET)
@@ -114,20 +119,15 @@ public class StudentController {
     public ResponseEntity<?> uploadFile(
             @RequestParam("file") MultipartFile uploadfile) {
 
-
         if (uploadfile.isEmpty()) {
-            return new ResponseEntity("please select a file!", HttpStatus.OK);
+            return new ResponseEntity("please select a file!", HttpStatus.NOT_FOUND);
         }
-
         try {
-
             saveUploadedFiles(Arrays.asList(uploadfile));
-
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
         }
-
-        return new ResponseEntity("Successfully uploaded - " +
+        return new ResponseEntity("Successfullyt uploaded - " +
                 uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
     }
     private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
@@ -144,5 +144,16 @@ public class StudentController {
         }
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/uploadFile/{uploads}" , method = RequestMethod.GET)
+    public String getUploadFile(@PathVariable String uploads) {
+        return uploads;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/student/{uploads}", method = RequestMethod.PUT)
+    public String updateStudent(@PathVariable String uploads, @RequestBody Student student) {
+        return studentService.save(student).getUploads();
+    }
 
 }
