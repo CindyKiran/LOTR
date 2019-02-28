@@ -40,7 +40,7 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-    private static String UPLOADED_FOLDER = "C://Users//Denisa//Downloads";
+    private static String UPLOADED_FOLDER = "C://Users//Cindy//Downloads";
 
 
     @ResponseBody
