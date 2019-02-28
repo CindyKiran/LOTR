@@ -37,11 +37,13 @@ export class LoginDocentComponent implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
 
-    this.docentService.authenticate(new Docent(0, firstName, lastName, userName, passWord, place, creature)).subscribe(result => {
+    this.docentService.authenticate(new Docent(0, firstName, lastName, userName, passWord, place, creature)).subscribe((result: Docent) => {
         console.log(result)
-        if (result == true) {
-          this.router.navigate(['login-docent'])
-        } else if (result == false) {
+        if (result != null) {
+          localStorage.setItem('first', result.firstName);
+          localStorage.setItem('last', result.lastName);
+          this.router.navigate(['/blackboard'])
+        } else if (result  === null) {
           this.router.navigate(['login-docent'])
           this.redError = true;
         }

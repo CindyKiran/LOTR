@@ -9,6 +9,8 @@ import {catchError} from 'rxjs/operators';
 })
 export class DocentService {
 
+  currentDocent: Docent;
+
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Docent[]>  {

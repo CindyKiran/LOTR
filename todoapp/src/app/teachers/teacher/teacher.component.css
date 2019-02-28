@@ -10,7 +10,6 @@ body{
   h1{ 
     font-family: sans-serif;
     text-align: center;
-    margin:0;
   }
   
   h2{
@@ -65,8 +64,8 @@ body{
     }
   }
   
-  .teacher {
-     border: 3px solid #E1E1E1; 
+  div {
+    border: 3px solid #E1E1E1;
     width: 35em;
     margin: 20px;
     padding: 10px;
@@ -86,9 +85,5 @@ body{
   
   p{
     line-height:0.5;
-  }
-
-  div{
-    margin-left: 13em;
   }
   

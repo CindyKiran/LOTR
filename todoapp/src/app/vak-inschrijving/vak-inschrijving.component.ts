@@ -20,7 +20,7 @@ export class VakInschrijvingComponent implements OnInit {
   userOpleiding :String;
   userOpleidingId : number;
   vakken : string;
-  text: String = "Inschrijven";
+  text: String = "Register course";
   docent : Vak;
   opleiding: Opleiding;
 
@@ -66,8 +66,6 @@ export class VakInschrijvingComponent implements OnInit {
   constructor(private opleidingService: OpleidingService, private studentService: StudentService, private vakService: VakService) {
   }
 
- 
-
   displayVakken(){
     this.opleidingService.displayVakken(this.userOpleidingId).subscribe(
       opleiding => {
@@ -95,6 +93,7 @@ export class VakInschrijvingComponent implements OnInit {
 
   inschrijven(vak: Vak){
    // this.vakService.updateVak(vak.id, vak).subscribe();
+   alert("You have signed up!");
    var studentIdString = localStorage.getItem('id');
    var studentIdNumber = Number(studentIdString);
    this.studentService.inschrijvenVak(studentIdNumber,vak.id).subscribe();

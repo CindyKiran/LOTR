@@ -15,11 +15,10 @@ import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.co
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { ProfileComponent } from './profile/profile.component';
-import { StudypointsComponent } from './studypoints/studypoints.component';
-import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { TeacherComponent } from './teachers/teacher/teacher.component';
 
 
 @NgModule({
@@ -35,11 +34,10 @@ import { TeachersComponent } from './teachers/teachers.component';
     ScheduleComponent,
     HomeworkComponent,
     ProfileComponent,
-    StudypointsComponent,
-    PersonalinfoComponent,
     ContactComponent,
     NavComponent,
-    TeachersComponent
+    TeachersComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,
