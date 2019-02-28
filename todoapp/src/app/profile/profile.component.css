@@ -5,7 +5,14 @@ form {
   max-width: 40em;
   margin: auto;
 }
-h1{ font-family: sans-serif}
+h1{ 
+  font-family: sans-serif
+}
+
+h2{
+  font-size: 90%;
+  font-family: sans-serif;
+}
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -15,17 +22,6 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
 }
 
 /* Add a hover effect for buttons */
@@ -65,7 +61,14 @@ span.psw {
   }
 }
 
-  p{
-    color:red;
-  }
-
+.vak{
+  background-color: #4CAF50;
+  font-family: sans-serif;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px auto;
+  border: none;
+  cursor: default;
+  width: 50%;
+  text-align: center;
+}

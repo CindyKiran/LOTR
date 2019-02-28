@@ -18,9 +18,6 @@ public class Persoon {
     @ManyToOne
     private University university;
 
-
-
-
     public long getId() { return id; }
 
     public String getUserName() { return userName; }

@@ -8,9 +8,12 @@ import { DocentRegisterComponent } from './docent-register/docent-register.compo
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
 import { HomeworkComponent } from './homework/homework.component';
+import { ProfileComponent } from './profile/profile.component';
 import {ContactComponent} from './contact/contact.component';
+import {PersonalinfoComponent} from './personalinfo/personalinfo.component';
 import {ScheduleComponent} from './schedule/schedule.component';
-import {PersonalInfoComponent} from './personal-info/personal-info.component';
+import {StudypointsComponent} from './studypoints/studypoints.component';
+import { TeachersComponent } from './teachers/teachers.component';
 
 const routes: Routes = [
   {path: '', component: Login},
@@ -22,9 +25,13 @@ const routes: Routes = [
   {path: 'vakInschrijving', component: VakInschrijvingComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'homework', component: HomeworkComponent},
-  {path: 'personal-info', component: PersonalInfoComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'personalinfo', component: PersonalinfoComponent},
   {path: 'schedule', component: ScheduleComponent},
-];
+  {path: 'studypoints', component: StudypointsComponent},
+  {path: 'teachers', component: TeachersComponent}
+  ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

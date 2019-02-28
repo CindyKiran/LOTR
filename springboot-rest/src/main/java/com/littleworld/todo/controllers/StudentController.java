@@ -5,6 +5,9 @@ import com.littleworld.todo.model.Student;
 import com.littleworld.todo.model.Vak;
 import com.littleworld.todo.services.OpleidingService;
 import com.littleworld.todo.services.StudentService;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+import org.apache.catalina.connector.Response;
 import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -21,6 +24,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -37,6 +41,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
     private static String UPLOADED_FOLDER = "C://Users//Denisa//Downloads";
+
 
     @ResponseBody
     @RequestMapping(value = "/student", method = RequestMethod.POST)
@@ -70,11 +75,6 @@ public class StudentController {
     }
 
     @ResponseBody
-    @RequestMapping (value = "/username/{userName}", method = RequestMethod.GET)
-    public List<Student> findbyUserName(@PathVariable String userName){return (List<Student>) studentService.findByUserName(userName);
-    }
-
-    @ResponseBody
     @RequestMapping(value = "/authenticateStudent", method = RequestMethod.POST)
     public Student authenticateStudent(@RequestBody Student student) {
         List<Student> lijst = (List<Student>) studentService.findByUserNameAndPassWord(student.getUserName(), student.getPassWord());
@@ -96,6 +96,18 @@ public class StudentController {
 //    public long updateStudent(@PathVariable long id, @RequestBody Student student) {
 //        return studentService.save(student).getId();
 //    }
+
+    @ResponseBody
+    @RequestMapping(value = "/student/{studentId}/vak/{vakId}", method = RequestMethod.GET)
+    public Student updateVak(@PathVariable long studentId,@PathVariable long vakId) {
+        Optional <Student>  student = this.studentService.findById(studentId);
+        Optional<Vak> vak = this.vakService.findById(vakId);
+        if(student.isPresent() && vak.isPresent()){
+            student.get().addIngeschrevenVakken(vak.get());
+            return studentService.save(student.get());
+        }
+        return null;
+    }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)
@@ -131,6 +143,7 @@ public class StudentController {
             Files.write(path, bytes);
         }
     }
+
     @ResponseBody
     @RequestMapping(value = "/uploadFile/{uploads}" , method = RequestMethod.GET)
     public String getUploadFile(@PathVariable String uploads) {
@@ -142,4 +155,5 @@ public class StudentController {
     public String updateStudent(@PathVariable String uploads, @RequestBody Student student) {
         return studentService.save(student).getUploads();
     }
+
 }

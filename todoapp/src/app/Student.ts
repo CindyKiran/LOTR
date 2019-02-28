@@ -14,8 +14,12 @@ export class Student{
   opleiding: Opleiding;
   vakken: Vak[];
   uploads: string;
+  ingeschrevenVakken: Vak[];
 
-  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: Opleiding, vakken: Vak[], uploads: string) {
+  constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: Opleiding, vakken: Vak[], ingeschrevenVakken:Vak[],uploads: string) {
+
+  
+
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -27,5 +31,6 @@ export class Student{
     this.opleiding = opleiding;
     this.vakken = vakken;
     this.uploads = uploads;
+    this.ingeschrevenVakken = ingeschrevenVakken;
   }
 }

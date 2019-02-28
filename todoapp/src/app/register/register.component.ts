@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
     const vakken = null;
+    const ingeschrevenVakken = null;
     const opleiding = this.dataForm.controls['opleiding'].value;
     var uploads: string;
 
@@ -90,8 +91,8 @@ export class RegisterComponent implements OnInit {
       console.log("error!!!")
       this.emptyBoxes = true;
     } else {
-      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, uploads)).subscribe();
-      this.regSuccess = true;
+      this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken, uploads)).subscribe();
+      regSuccess = true;
     }
   }
 }

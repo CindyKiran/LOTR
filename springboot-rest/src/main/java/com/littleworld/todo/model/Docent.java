@@ -7,16 +7,16 @@ import java.util.Set;
 @Entity
 public class Docent extends Persoon {
 
-//    @OneToMany
-//    private Set<Vak> vakken;
-//
-//    public Set<Vak> getVakken() {
-//        return vakken;
-//    }
-//
-//    public void setVakken(Set<Vak> vakken) {
-//        this.vakken = vakken;
-//    }
+    @OneToMany
+    private Set<Vak> vakken;
+
+    public Set<Vak> getVakken() {
+        return vakken;
+    }
+
+    public void setVakken(Set<Vak> vakken) {
+        this.vakken = vakken;
+    }
 
     public void lesGeven(){
 

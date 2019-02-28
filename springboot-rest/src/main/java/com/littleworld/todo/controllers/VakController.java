@@ -1,10 +1,14 @@
 package com.littleworld.todo.controllers;
 
+import com.littleworld.todo.model.Docent;
 import com.littleworld.todo.model.Opleiding;
 import com.littleworld.todo.model.Student;
 import com.littleworld.todo.model.Vak;
+import com.littleworld.todo.services.DocentService;
+import com.littleworld.todo.services.StudentService;
 import com.littleworld.todo.services.VakService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,11 +21,17 @@ public class VakController {
     @Autowired
     private VakService vakService;
 
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private DocentService docentService;
+
     @ResponseBody
     @RequestMapping(value = "/vak", method = RequestMethod.POST)
     public long create(@RequestBody Vak vak){
         return vakService.save(vak).getId();
     }
+
     @ResponseBody
     @RequestMapping(value = "/vak", method = RequestMethod.GET)
     public List<Vak> findAll(){
@@ -30,14 +40,22 @@ public class VakController {
 
     @ResponseBody
     @RequestMapping(value = "/vak/{id}", method = RequestMethod.GET)
-    public Optional<Vak> vakById(@PathVariable long id){
-        return vakService.findById(id);
-    }
+    public Result vakById(@PathVariable long id){
+        Optional<Vak> vak = vakService.findById(id);
+        Result result = new Result();
+        result.copyValues(vak.get());
 
-    @ResponseBody
-    @RequestMapping(value = "/vak/{opleidingen_id}", method = RequestMethod.GET)
-    public Iterable<Vak> vakByOpleiding(@PathVariable int opleidingen_id){
-        return vakService.findByOpleidingen_Id(opleidingen_id);
+        Iterable<Docent> docenten = docentService.findAll();
+        docenten.forEach(
+                (Docent doc) -> {
+                    for (Vak v: doc.getVakken()) {
+                        if (v.getId()==id) {
+                            result.docent = doc;
+                        }
+                    }
+                }
+        );
+        return result;
     }
 
     @RequestMapping(value = "/pageVak", method = RequestMethod.GET)
@@ -45,4 +63,30 @@ public class VakController {
         return "vak";
     }
 
+
+
+}
+
+class Result extends Vak{
+    long idR ;
+    Docent docent;
+
+    public long getId() {
+        return idR;
+    }
+
+    public void copyValues(Vak vak) {
+        this.idR = vak.getId();
+        this.setNaam(vak.getNaam());
+        this.setMaxStudenten(vak.getMaxStudenten());
+
+    }
+
+    public Docent getDocent() {
+        return docent;
+    }
+
+    public void setDocent(Docent docent) {
+        this.docent = docent;
+    }
 }

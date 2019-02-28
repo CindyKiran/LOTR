@@ -12,13 +12,13 @@ import { LoginDocentComponent } from './login-docent/login-docent.component';
 import { DocentRegisterComponent } from './docent-register/docent-register.component';
 import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.component';
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
-import { HomeworkComponent } from './homework/homework.component';
 import { ScheduleComponent } from './schedule/schedule.component';
-import { CreditsComponent } from './credits/credits.component';
-import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { HomeworkComponent } from './homework/homework.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
-import {FileSelectDirective} from 'ng2-file-upload';
+import { TeachersComponent } from './teachers/teachers.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +30,15 @@ import {FileSelectDirective} from 'ng2-file-upload';
     DocentRegisterComponent,
     OpleidingVakkenComponent,
     VakInschrijvingComponent,
-    HomeworkComponent,
     ScheduleComponent,
-    CreditsComponent,
-    PersonalInfoComponent,
+    HomeworkComponent,
+    ProfileComponent,
+    PersonalinfoComponent,
     ContactComponent,
     NavComponent,
+    TeachersComponent,
     FileSelectDirective,
+
   ],
   imports: [
     BrowserModule,

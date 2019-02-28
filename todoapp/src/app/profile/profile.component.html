@@ -1,0 +1,20 @@
+<form [formGroup]="dataForm" (ngSubmit)="loginData($event)" >
+        <div *ngIf="student" class="imgcontainer" >
+          <h1>Profile of {{ student?.firstName }}</h1> 
+          <img src="https://pokemon-mart.000webhostapp.com/LOTR/baggins.png" alt="Avatar" class="avatar">
+        </div>
+      
+        <div class="container">
+            <h2>Personal Information</h2>
+                First name: {{student?.firstName}}<br>
+                Last name: {{student?.lastName}}<br>
+                Age: {{student?.age}}<br>
+                Race: {{student?.creature}}<br><br>
+            <h2 style="text-align: center">Courses you signed up for:</h2>
+        </div>
+
+        <div *ngFor="let vak of student.ingeschrevenVakken" class="vak">
+               {{vak.naam}}
+            </div>
+      </form>
+      

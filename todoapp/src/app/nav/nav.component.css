@@ -6,8 +6,7 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  /*background-color: #; !* Black *!*/
-  background-image: url("symbol.jpg");
+  background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -34,6 +33,7 @@
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
+
   .sidenav {
     padding-top: 15px;
   }
@@ -72,3 +72,8 @@
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
 }
+
+.sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

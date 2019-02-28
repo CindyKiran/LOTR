@@ -1,13 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { HttpClientModule } from  '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Student} from './Student';
+import {catchError} from 'rxjs/operators';
+import { Vak } from './Vak';
+import { Opleiding } from './Opleiding';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
   currentStudent : Student;
+  vak: Vak;
+
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Student[]>  {
@@ -38,13 +45,18 @@ export class StudentService {
   uploadFile(student: Student){
     return this.http.post<any>('http://localhost:8080/uploadFile', student).pipe();
   }
-  // update(student: Student) {
-  //   return this.http.put(`{'http://localhost:8080/{id}`, student);
-  // }
-  // updateStudent(uploads){
-  //   return this.http.put('http://localhost:8080/student/{uploads}', uploads);
-  // }
-  // patchUploads(uploads: String){
-  //   return this.http.patch('http://localhost:8080/student', uploads);
-  // }
+
+  inschrijvenVak(studentId, vakId){
+    return this.http.get('http://localhost:8080/student/'+studentId+'/vak/'+vakId)
+  }
+
+  displayUser(id: number): Observable<Student>  {
+    return this.http.get<any>('http://localhost:8080/student/'+id);
+  }
+
+  public uploadFile(file: File): Observable<any>{
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post('http://localhost:8080/uploadFile/', formData);
+  }
 }

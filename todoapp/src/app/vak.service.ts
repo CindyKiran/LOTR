@@ -23,10 +23,21 @@ export class VakService {
     );
   }
 
-  verplichteVakken(id: string): Observable<Vak>  {
-    console.log(id);
-    return this.http.get<any>('http://localhost:8080/opleiding/'+id);
+  updateVak(id: Number, vak: Vak) {
+    return this.http.put('http://localhost:8080/vak/'+id+'/schrijfin', {}).pipe();
   }
+
+  updateVak2(studentId: Number, vak: Vak) {
+    return this.http.put('http://localhost:8080/student/'+studentId+'/schrijfin', {}).pipe();
+  }
+
+  getVak(id:Number): Observable<Vak>  {
+    return this.http.get<any>('http://localhost:8080/vak/'+id).pipe(
+      catchError(this.handleError<Vak>(`errrrrrrrrrrrrrrrrrrrrrror`))
+    );
+  }
+
+ 
 
   private handleError<Vak> (operation = 'operation', result?: Vak) {
     return (error: any): Observable<Vak> => {
