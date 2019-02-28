@@ -12,19 +12,7 @@ public class Vak {
     private int periode;
     private int maxStudiePunten = 5;
     private int maxStudenten;
-    private boolean isVerplicht;
-
-    private boolean isIngeschreven;
-
-    public boolean isIngeschreven() {
-        return isIngeschreven;
-    }
-
-    public void setIngeschreven(boolean ingeschreven) {
-        isIngeschreven = ingeschreven;
-    }
-
-    //private String docent;
+    private String docentNaam;
     private String rasEis[];
     @ManyToMany
     private Set<Opleiding> opleidingen;
@@ -36,14 +24,6 @@ public class Vak {
     public void setNaam(String naam) {
         this.naam = naam;
     }
-
-//    public Set<Opleiding> getOpleidingen() {
-//        return opleidingen;
-//    }
-
-//    public void setOpleidingen(Set<Opleiding> opleidingen) {
-//        this.opleidingen = opleidingen;
-//    }
 
     public long getId() {
         return id;
@@ -73,14 +53,6 @@ public class Vak {
         this.maxStudenten = maxStudenten;
     }
 
-    public boolean isVerplicht() {
-        return isVerplicht;
-    }
-
-    public void setVerplicht(boolean isVerplicht) {
-        this.isVerplicht = isVerplicht;
-    }
-
     public String[] getRasEis() {
         return rasEis;
     }
@@ -89,4 +61,11 @@ public class Vak {
         this.rasEis = rasEis;
     }
 
+    public String getDocentNaam() {
+        return docentNaam;
+    }
+
+    public void setDocentNaam(String docentNaam) {
+        this.docentNaam = docentNaam;
+    }
 }

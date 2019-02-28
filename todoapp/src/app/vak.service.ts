@@ -32,6 +32,12 @@ export class VakService {
     return this.http.put('http://localhost:8080/student/'+studentId+'/schrijfin', {}).pipe();
   }
 
+  getVak(id:Number): Observable<Vak>  {
+    return this.http.get<any>('http://localhost:8080/vak/'+id).pipe(
+      catchError(this.handleError<Vak>(`errrrrrrrrrrrrrrrrrrrrrror`))
+    );
+  }
+
  
 
   private handleError<Vak> (operation = 'operation', result?: Vak) {

@@ -1,0 +1,29 @@
+<h1>Teachers of Middle Earth University</h1> 
+
+<div style="float: left">
+  <img src="https://pokemon-mart.000webhostapp.com/LOTR/gandalf.png" alt="Avatar" class="avatar"><br>
+  <b>{{ docent1?.firstName }} {{docent1?.lastName}} </b><br>
+  <p>Race: {{docent1?.creature}}</p>
+  <p>Race: {{docent1?.creature}}</p>
+  <p>Age: {{docent1?.age}}</p>
+ <p>Email: {{ docent1?.firstName}}{{docent1?.lastName}}@gmail.com</p>
+ 
+
+  <b>Courses he gives:</b>
+  <div *ngFor ="let vak of docent1?.vakken" class="vak">
+    {{vak.naam}}
+  </div>
+</div>
+
+<div  style="float: left">
+    <img src="https://pokemon-mart.000webhostapp.com/LOTR/gandalf.png" alt="Avatar" class="avatar"><br>
+    <b>{{ docent2?.firstName }} {{docent2?.lastName}} </b><br>
+    Race: {{docent2?.creature}}<br>
+    Age: {{docent2?.age}}<br>
+    Email: {{ docent2?.firstName}}{{docent2?.lastName}}@gmail.com<br><br>
+  
+    <b>Courses he gives:</b>
+    <div *ngFor ="let vak of docent2?.vakken" class="vak">
+      {{vak.naam}}
+    </div>
+  </div>

@@ -14,15 +14,13 @@ import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.co
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HomeworkComponent } from './homework/homework.component';
-<<<<<<< HEAD
 import { ProfileComponent } from './profile/profile.component';
-=======
 import { StudypointsComponent } from './studypoints/studypoints.component';
 import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
+import { TeachersComponent } from './teachers/teachers.component';
 
->>>>>>> d42085d40de4de0da7a2c030a6bd54e9e40a8a39
 
 @NgModule({
   declarations: [
@@ -36,14 +34,12 @@ import { NavComponent } from './nav/nav.component';
     VakInschrijvingComponent,
     ScheduleComponent,
     HomeworkComponent,
-<<<<<<< HEAD
     ProfileComponent,
-=======
     StudypointsComponent,
     PersonalinfoComponent,
     ContactComponent,
-    NavComponent
->>>>>>> d42085d40de4de0da7a2c030a6bd54e9e40a8a39
+    NavComponent,
+    TeachersComponent
   ],
   imports: [
     BrowserModule,
