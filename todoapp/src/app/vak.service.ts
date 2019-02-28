@@ -11,7 +11,6 @@ export class VakService {
 
   constructor(private http: HttpClient) { }
 
-  
   findAll(): Observable<Vak[]>  {
     return this.http.get<any>('http://localhost:8080/vak').pipe(
       catchError(this.handleError<Vak>(`findAll`))
@@ -36,4 +35,3 @@ export class VakService {
     };
   }
 }
-

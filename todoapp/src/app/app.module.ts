@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { BlackboardComponent } from './blackboard/blackboard.component';
 import {Login} from './login/login.component';
@@ -18,7 +18,7 @@ import { CreditsComponent } from './credits/credits.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {FileSelectDirective} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -36,13 +36,14 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     PersonalInfoComponent,
     ContactComponent,
     NavComponent,
+    FileSelectDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    PdfViewerModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
 <app-nav></app-nav>
-
+<body>
 <h1> {{opleiding?.naam}}</h1> 
-  
-
 
 <div *ngFor="let vak of opleiding?.vakken">
   naam: {{ vak.naam }} <br>
@@ -11,4 +9,4 @@
   ras toegestaan: {{ vak.rasEis }}
   <button (click)="inschrijven($event)">Inschrijven</button>
 </div>
-
+</body>

@@ -15,6 +15,7 @@ import { Opleiding } from '../Opleiding';
 export class Login implements OnInit {
   constructor(public fb: FormBuilder, private studentService: StudentService, private router: Router) {
   }
+  redError: boolean = false;
 
   public dataForm = this.fb.group({
     firstName:  ['', Validators.required],
@@ -30,9 +31,6 @@ export class Login implements OnInit {
   }
 
   public loginData(event) {
-    var redError: boolean;
-    redError = false;
-
     const firstName = this.dataForm.controls['firstName'].value;
     const lastName = this.dataForm.controls['lastName'].value;
     const userName = this.dataForm.controls['userName'].value;
@@ -40,10 +38,11 @@ export class Login implements OnInit {
     const place = this.dataForm.controls['place'].value;
     const creature = this.dataForm.controls['creature'].value;
     const age = this.dataForm.controls['age'].value;
+    var uploads: string;
     const vakken=null;
     var opleiding:Opleiding;
 
-    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken)).subscribe(
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken, uploads)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
@@ -52,10 +51,12 @@ export class Login implements OnInit {
           localStorage.setItem('last', result.lastName);
           localStorage.setItem('userName', result.userName);
           localStorage.setItem('id', result.id.toLocaleString());
+          localStorage.setItem('file', result.uploads);
           this.router.navigate(['blackboard']);
         } else if (result === null) {
           this.router.navigate([''])
-          redError = true;
+          console.log("invalid username and/or password")
+          this.redError = true;
         }
       }
     );

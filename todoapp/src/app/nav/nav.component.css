@@ -6,7 +6,8 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  /*background-color: #; !* Black *!*/
+  background-image: url("symbol.jpg");
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -33,6 +34,41 @@
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+/*body {*/
+  /*height: 100%;*/
+  /*border: 3px solid #E1E1E1;*/
+  /*max-width: 40em;*/
+  /*margin: auto;*/
+  /*background-image: url("middleearth.jpg");*/
+/*}*/
+/*.bg {*/
+  /*background-image: url("middleearth.jpg");*/
+  /*height: 100%;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+/*}*/
+
+.container {
+  position: relative;
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.container .content {
+  position: absolute; /* Position the background text */
+  top: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
 }

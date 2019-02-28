@@ -6,6 +6,8 @@ import java.util.Set;
 @Entity
 public class Student extends Persoon {
     private int studiePunten;
+    private String uploads;
+
 //    @OneToMany
 //    private Set<Vak> vakken;
 //
@@ -54,5 +56,13 @@ public class Student extends Persoon {
     }
     public void tentamenMaken(){
 
+    }
+
+    public String getUploads() {
+        return uploads;
+    }
+
+    public void setUploads(String uploads) {
+        this.uploads = uploads;
     }
 }

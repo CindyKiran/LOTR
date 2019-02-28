@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FileUploader, FileSelectDirective} from 'ng2-file-upload';
 import {StudentService} from '../student.service';
-import {PdfViewerModule} from 'ng2-pdf-viewer';
-import {PdfViewerComponent} from 'ng2-pdf-viewer';
+import {Student} from '../Student';
+
+const URL = 'http://localhost:8080/uploadFile';
 
 @Component({
   selector: 'app-homework',
@@ -9,40 +11,49 @@ import {PdfViewerComponent} from 'ng2-pdf-viewer';
   styleUrls: ['./homework.component.css']
 })
 export class HomeworkComponent implements OnInit {
-  uploadSuccess: boolean;
+  public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'file'});
+  constructor(private studentService: StudentService){}
+  student: Student[];
+  currentStudent: Student;
+  fb: FileReader;
 
-  constructor(private studentService: StudentService) { }
   ngOnInit() {
+    this.studentService.findbyUserName(localStorage.getItem('userName')).subscribe(
+      result => {
+        this.currentStudent = result.pop();
+      }
+    )
   }
+  updateUploads(event){
+    this.uploader.uploadAll();
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      // console.log('ImageUpload:uploaded:', item, status, response);
+      alert('File uploaded successfully');
 
-  public path;
-  url: any;
-  public message: string;
-
-  preview(files) {
-    if (files.length === 0)
-      return;
-
-    var reader = new FileReader();
-    this.path = files;
-
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
-      this.url = reader.result;
-      this.uploadSuccess = true;
+      console.log( item._file.name);
+      this.currentStudent.uploads = ( item._file.name);
+      this.studentService.uploadFile(this.currentStudent).subscribe();
     };
-    console.log(files);
-    this.studentService.uploadFile(files).subscribe(
-      (res)=>{
-      },
-      (err)=>{;
-      })
-  }
+    // this.currentStudent.uploads = event.toLocaleString();
+    // this.studentService.uploadFile(this.currentStudent).subscribe();
 
-  pdfSrc: string = '/pdf-test.pdf';
-
-  upload(fileInput: any) {
-    var file : File = fileInput.files[0];
-    file = fileInput.target.files[0];
   }
+  // updateUp() {
+  //   this.studentService.findAll().subscribe(
+  //     (student)=>{
+  //       this.student = student;
+  //       var findId: boolean;
+  //       findId = false;
+  //       for(let x = 0; x<this.student.length; x++){
+  //         if(this.student[x].id == this.currentStudent.id){
+  //           findId = true;
+  //           this.studentService.patchUploads(this.student[x].uploads).subscribe();
+  //         }
+  //       }
+  //     }
+  //   )
+  // }
 }
+
+

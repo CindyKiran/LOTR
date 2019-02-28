@@ -1,23 +1,16 @@
 <app-nav></app-nav>
-
+<body>
 <div class="imgcontainer">
-  <h1>Upload your homework here</h1>
-<label class="image-upload-container btn btn-bwm">
-  <!--<img [src]="url" height="400" *ngIf="url"> <br/>-->
-  <!--<input #file type="file" (change)="preview(file.files)" />-->
-  <!--&lt;!&ndash;<input #file type="file" (change)="uploadAndProgress($event.target.files)">&ndash;&gt;-->
-
-  <!--<input type="file" (change)="processFile()" />-->
-
-  <!--<ng-container *ngIf="uploadSuccess">-->
-    <!--Upload Successful-->
-  <!--</ng-container>-->
-  <input (change)="upload($event)" multiple type="file" />
-
-  <object [data]="file" type="application/pdf">
-    <embed [src]="file" type="application/pdf" />
-  </object>
-  <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer>
-
-</label>
+  <h1>Upload your homework here</h1><br/><br/>
+  <input type="file"
+         name="photo"
+         style="display: none;"
+         #fileInput
+         ng2FileSelect [uploader]="uploader"/><br/><br/>
+  <button type="button" (click)="fileInput.click()">Select a file</button><br/>
+  <button type="button" class="btn btn-success btn-s"
+          (click)="updateUploads(uploader)"
+          [disabled]="!uploader.getNotUploadedItems().length" >
+    Upload</button>
 </div>
+

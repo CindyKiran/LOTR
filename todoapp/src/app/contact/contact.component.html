@@ -1,1 +1,23 @@
 <app-nav></app-nav>
+<body>
+<form [formGroup]="dataForm" (ngSubmit)="sendForm()">
+  <div class="imgcontainer">
+    <h1>Contact form</h1>
+
+    <label><b>First name:</b> {{displayFirst()}}</label><br/>
+
+    <label><b>Last name:</b> {{displayLast()}}</label><br/><br/>
+
+    <label for="subject"><b>Subject: </b></label>
+    <input formControlName="subject" type="text" placeholder="Enter Subject" id="subject" name="subject" required>
+
+    <label for="question"><b>Question</b></label>
+    <textarea formControlName="question" id="question" name="question" placeholder="Write something.." style="height:200px"></textarea>
+
+    <p *ngIf="contactSuccess">Question form send</p><br>
+    <p *ngIf="emptyBoxes">Fill in all boxes</p><br>
+
+    <button routerLink="/contact" type="submit">Submit</button>
+  </div>
+</form>
+</body>
