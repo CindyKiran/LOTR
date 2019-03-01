@@ -51,9 +51,17 @@ public class DocentController {
 
     @ResponseBody
     @RequestMapping(value = "/authenticateDocent", method = RequestMethod.POST)
-    public boolean authenticate(@RequestBody Docent docent) {
+    public Docent authenticateDocent(@RequestBody Docent docent) {
+//        List<Docent> lijst = (List<Docent>) docentService.findByUserNameAndPassWord(docent.getUserName(), docent.getPassWord());
+//        return !lijst.isEmpty();
+
         List<Docent> lijst = (List<Docent>) docentService.findByUserNameAndPassWord(docent.getUserName(), docent.getPassWord());
-        return !lijst.isEmpty();
+//        System.out.println(lijst.size());
+        if (lijst.size()==1) {
+            return lijst.get(0);
+        } else {
+            return null;
+        }
     }
 
     @ResponseBody

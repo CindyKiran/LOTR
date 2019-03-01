@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FileUploader, FileSelectDirective} from 'ng2-file-upload';
 import {StudentService} from '../student.service';
 import {Student} from '../Student';
-
 const URL = 'http://localhost:8080/uploadFile';
-
 
 @Component({
   selector: 'app-homework',
@@ -37,5 +35,3 @@ export class HomeworkComponent implements OnInit {
     };
   }
 }
-
-

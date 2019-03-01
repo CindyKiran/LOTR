@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FileUploader, FileSelectDirective} from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -15,10 +15,10 @@ import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.co
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { TeacherComponent } from './teachers/teacher/teacher.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +33,16 @@ import { TeachersComponent } from './teachers/teachers.component';
     ScheduleComponent,
     HomeworkComponent,
     ProfileComponent,
+    ContactComponent,
+    NavComponent,
+    TeachersComponent,
+    TeacherComponent,
+    FileSelectDirective
     PersonalinfoComponent,
     ContactComponent,
     NavComponent,
     TeachersComponent,
     FileSelectDirective,
-
   ],
   imports: [
     BrowserModule,

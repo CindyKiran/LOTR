@@ -9,11 +9,9 @@ import { DocentService } from '../docent.service';
 })
 export class TeachersComponent implements OnInit {
 
-  docent1: Docent;
-  docent2: Docent;
-  docent3: Docent;
-  docent4: Docent;
-  docent : Docent[];
+  docenten : Docent[];
+  imgUrl: String;
+ 
 
   constructor(private docentService: DocentService) { }
 
@@ -24,10 +22,8 @@ export class TeachersComponent implements OnInit {
   displayTeachers(){
     this.docentService.findAll().subscribe(
       docent => {
-        this.docent1 = docent[1];
-        this.docent2 = docent[2];
-        this.docent3 = docent[3];
-        this.docent4 = docent[4];
+        this.docenten = docent;
+        console.log(docent);
     },
     err => {
       console.log(err);

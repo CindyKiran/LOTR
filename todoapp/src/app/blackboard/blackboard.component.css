@@ -1,6 +1,55 @@
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+html{
+  margin: 0;
 }
 
+.helemaalLinks{
+  margin-left: -300px;
+}
+
+body{
+  font-family: sans-serif;
+}
+
+
+h1{ 
+  font-family: sans-serif;
+  text-align: center;
+  margin:0;
+}
+
+h2{
+  font-size: 90%;
+  font-family: sans-serif;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+}
+
+div {
+  border: 3px solid #E1E1E1;
+  max-width: 40em;
+  margin: 10px auto;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
 

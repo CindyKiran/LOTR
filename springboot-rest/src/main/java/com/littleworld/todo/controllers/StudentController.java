@@ -143,7 +143,6 @@ public class StudentController {
             Files.write(path, bytes);
         }
     }
-
     @ResponseBody
     @RequestMapping(value = "/uploadFile/{uploads}" , method = RequestMethod.GET)
     public String getUploadFile(@PathVariable String uploads) {
@@ -155,5 +154,4 @@ public class StudentController {
     public String updateStudent(@PathVariable String uploads, @RequestBody Student student) {
         return studentService.save(student).getUploads();
     }
-
 }

@@ -10,6 +10,7 @@ body{
   h1{ 
     font-family: sans-serif;
     text-align: center;
+    margin:0;
   }
   
   h2{
@@ -64,13 +65,14 @@ body{
     }
   }
   
-  div {
-    border: 3px solid #E1E1E1;
-    max-width: 40em;
+  .teacher {
+     border: 3px solid #E1E1E1; 
+    width: 35em;
     margin: 20px;
     padding: 10px;
     font-family: sans-serif;
     text-align: center;
+    float:left;
   }
   
   .vak {
@@ -83,6 +85,10 @@ body{
   }
   
   p{
-    line-height:1.6;
+    line-height:0.5;
+  }
+
+  div{
+    margin-left: 13em;
   }
   

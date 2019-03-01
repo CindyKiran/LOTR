@@ -5,6 +5,7 @@ import {Student} from '../Student';
 import { Router } from '@angular/router';
 import { OpleidingVakkenComponent } from '../opleiding-vakken/opleiding-vakken.component';
 import { Opleiding } from '../Opleiding';
+import { University } from '../University';
 
 @Component({
   selector: 'app-login',
@@ -42,9 +43,10 @@ export class Login implements OnInit {
     const vakken=null;
     const ingeschrevenVakken =null;
     var opleiding:Opleiding;
+    var uploads: string;
+    
+    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken, ingeschrevenVakken, uploads, (new University(0)))).subscribe(
 
-
-    this.studentService.authenticateStudent(new Student(0, firstName, lastName, userName, passWord, place, creature, age, opleiding,vakken, ingeschrevenVakken, uploads)).subscribe(
       (result: Student) => {
         console.log(result)
         if (result != null) {
