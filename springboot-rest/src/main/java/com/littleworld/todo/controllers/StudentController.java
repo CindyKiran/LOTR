@@ -149,9 +149,9 @@ public class StudentController {
         return uploads;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/student/{uploads}", method = RequestMethod.PUT)
-    public String updateStudent(@PathVariable String uploads, @RequestBody Student student) {
-        return studentService.save(student).getUploads();
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/student/{uploads}", method = RequestMethod.PUT)
+//    public String updateStudent(@PathVariable String uploads, @RequestBody Student student) {
+//        return studentService.save(student).getUploads();;
+//    }
 }
