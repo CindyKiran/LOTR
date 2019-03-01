@@ -13,7 +13,6 @@ import {ContactComponent} from './contact/contact.component';
 import {ScheduleComponent} from './schedule/schedule.component';
 import { TeachersComponent } from './teachers/teachers.component';
 
-
 const routes: Routes = [
   {path: '', component: Login},
   {path: 'blackboard', component: BlackboardComponent},
@@ -28,6 +27,7 @@ const routes: Routes = [
   {path: 'schedule', component: ScheduleComponent},
   {path: 'teachers', component: TeachersComponent}
   ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

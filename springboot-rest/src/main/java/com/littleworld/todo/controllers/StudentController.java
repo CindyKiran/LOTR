@@ -40,7 +40,7 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-    private static String UPLOADED_FOLDER = "C://Users//Cindy//Downloads";
+    private static String UPLOADED_FOLDER = "C://Users//Denisa//Downloads";
 
 
     @ResponseBody
@@ -85,12 +85,17 @@ public class StudentController {
             return null;
         }
     }
+//    @ResponseBody
+//    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+//    public Student fileupload(@RequestBody Student student){
+//        return this.studentService.save(student);
+//    }
 
-    @ResponseBody
-    @RequestMapping(value = "/student/{id}", method = RequestMethod.PUT)
-    public long updateStudent(@PathVariable long id, @RequestBody Student student) {
-        return studentService.save(student).getId();
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/student/{id}", method = RequestMethod.PUT)
+//    public long updateStudent(@PathVariable long id, @RequestBody Student student) {
+//        return studentService.save(student).getId();
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/student/{studentId}/vak/{vakId}", method = RequestMethod.GET)

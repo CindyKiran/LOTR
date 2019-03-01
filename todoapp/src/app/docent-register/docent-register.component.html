@@ -33,8 +33,8 @@
 
     <button>Register</button>
 
-    <p [class.visible]="regSuccess">Registration form send</p><br>
-    <p [class.visible]="emptyBoxes">Fill in all boxes</p><br>
+    <p *ngIf="regSuccess">Registration form send</p><br>
+    <p *ngIf="emptyBoxes">Fill in all boxes</p><br>
 
     <button routerLink="/login-docent" style="width: 20%">Login</button>
   </div>

@@ -14,11 +14,13 @@ export class Student{
   age: number;
   opleiding: Opleiding;
   vakken: Vak[];
+  uploads: string;
   ingeschrevenVakken: Vak[];
   uploads: string;
   university :University;
 
   constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: Opleiding, vakken: Vak[], ingeschrevenVakken:Vak[], uploads: string, university:University) {
+
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -29,6 +31,7 @@ export class Student{
     this.age = age;
     this.opleiding = opleiding;
     this.vakken = vakken;
+    this.uploads = uploads;
     this.ingeschrevenVakken = ingeschrevenVakken;
     this.uploads = uploads;
     this.university = university;

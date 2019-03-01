@@ -4,7 +4,7 @@ import {FileUploader, FileSelectDirective} from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { BlackboardComponent } from './blackboard/blackboard.component';
 import {Login} from './login/login.component';
@@ -19,7 +19,6 @@ import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherComponent } from './teachers/teacher/teacher.component';
-
 
 @NgModule({
   declarations: [
@@ -39,12 +38,18 @@ import { TeacherComponent } from './teachers/teacher/teacher.component';
     TeachersComponent,
     TeacherComponent,
     FileSelectDirective
+    PersonalinfoComponent,
+    ContactComponent,
+    NavComponent,
+    TeachersComponent,
+    FileSelectDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

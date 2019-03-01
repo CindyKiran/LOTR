@@ -17,8 +17,9 @@ export class RegisterComponent implements OnInit {
   }
   regSuccess: boolean = false;
   emptyBoxes: boolean = false;
+
   @Input()
-    student: Student[];
+  student: Student[];
 
   public dataForm = this.fb.group({
     firstName:  ['', Validators.required],
@@ -97,7 +98,9 @@ export class RegisterComponent implements OnInit {
     console.log("error!!!")
       this.emptyBoxes = true;
     } else {
+
       this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken, uploads, (new University(0)))).subscribe();
+
       regSuccess = true;
     }
   }

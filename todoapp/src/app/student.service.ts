@@ -7,11 +7,11 @@ import {catchError} from 'rxjs/operators';
 import { Vak } from './Vak';
 import { Opleiding } from './Opleiding';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-
   currentStudent : Student;
   vak: Vak;
 
@@ -28,8 +28,9 @@ export class StudentService {
   studentById(student: Student){
     return this.http.post('http://localhost:8080/student/{id}', student).pipe( );
   }
-  findbyUserName(userName: string) :Observable <Student[]>{
-    return this.http.get<any>('http://localhost:8080/username/'+userName).pipe();
+
+  findbyUserName(username: string) :Observable <Student[]>{
+    return this.http.get<any>('http://localhost:8080/username/'+username).pipe();
   }
 
   authenticateStudent(student: Student) {
@@ -40,6 +41,10 @@ export class StudentService {
   delete(id) {
     return this.http.delete('http://localhost:8080/student/' + id).pipe()
     ;
+  }
+
+  uploadFile(student: Student){
+    return this.http.post<any>('http://localhost:8080/uploadFile', student).pipe();
   }
 
   inschrijvenVak(studentId, vakId){

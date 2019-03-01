@@ -9,10 +9,11 @@ public class Administratie {
     private long id;
     private int totaalStudiePuntenVerplicht;
     private int totaalStudiePuntenNietVerplicht;
+    private String subject;
+    private String question;
 
     @ManyToOne
     private University university;
-
 
     public long getId() {
         return id;
@@ -52,5 +53,21 @@ public class Administratie {
     }
     public void inschrijvingGoedkeuren(){
 
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }
