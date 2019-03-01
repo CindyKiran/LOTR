@@ -16,7 +16,6 @@ export class Student{
   vakken: Vak[];
   uploads: string;
   ingeschrevenVakken: Vak[];
-  uploads: string;
   university :University;
 
   constructor(id: number, firstName: string, lastName: string, userName: string, passWord: string, place: string, creature: string, age: number, opleiding: Opleiding, vakken: Vak[], ingeschrevenVakken:Vak[], uploads: string, university:University) {
@@ -33,7 +32,6 @@ export class Student{
     this.vakken = vakken;
     this.uploads = uploads;
     this.ingeschrevenVakken = ingeschrevenVakken;
-    this.uploads = uploads;
     this.university = university;
     
   }

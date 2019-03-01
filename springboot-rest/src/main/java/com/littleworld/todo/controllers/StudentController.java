@@ -108,6 +108,11 @@ public class StudentController {
         }
         return null;
     }
+    @ResponseBody
+    @RequestMapping(value = "/username/{userName}", method = RequestMethod.GET)
+    public List <Student> studentUser (@PathVariable String userName) {
+        return (List)this.studentService.findByUserName(userName);
+    }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)

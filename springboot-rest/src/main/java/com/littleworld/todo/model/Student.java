@@ -16,13 +16,6 @@ public class Student extends Persoon {
     @ManyToMany
     private List<Vak> ingeschrevenVakken = new ArrayList<>();
 
-    public String getUploads() {
-        return uploads;
-    }
-
-    public void setUploads(String uploads) {
-        this.uploads = uploads;
-    }
 
     public List<Vak> getIngeschrevenVakken() {
         return ingeschrevenVakken;
@@ -63,12 +56,10 @@ public class Student extends Persoon {
     }
 
     public void inschrijven(){
-
     }
     public void huiswerkInleveren(){
     }
     public void tentamenMaken(){
-
     }
 
     public String getUploads() {

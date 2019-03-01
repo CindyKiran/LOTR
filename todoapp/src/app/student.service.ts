@@ -55,8 +55,4 @@ export class StudentService {
     return this.http.get<any>('http://localhost:8080/student/'+id);
   }
 
-  uploadFile(student: Student){
-    return this.http.post<any>('http://localhost:8080/uploadFile', student).pipe();
-  }
-
 }

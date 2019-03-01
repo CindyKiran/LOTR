@@ -83,10 +83,11 @@ button {
     width: 100%;
 }
 body {
-  border: 3px solid #E1E1E1;
   max-width: 40em;
   margin: auto;
 }
+
+.vak{
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;

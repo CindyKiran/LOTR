@@ -15,7 +15,6 @@ import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.co
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherComponent } from './teachers/teacher/teacher.component';
@@ -33,13 +32,10 @@ import { TeacherComponent } from './teachers/teacher/teacher.component';
     ScheduleComponent,
     HomeworkComponent,
     ProfileComponent,
-    ContactComponent,
     NavComponent,
     TeachersComponent,
     TeacherComponent,
-    FileSelectDirective
-    PersonalinfoComponent,
-    ContactComponent,
+    FileSelectDirective,
     NavComponent,
     TeachersComponent,
     FileSelectDirective,

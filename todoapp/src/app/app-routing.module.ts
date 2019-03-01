@@ -9,7 +9,6 @@ import { OpleidingVakkenComponent } from './opleiding-vakken/opleiding-vakken.co
 import { VakInschrijvingComponent } from './vak-inschrijving/vak-inschrijving.component';
 import { HomeworkComponent } from './homework/homework.component';
 import { ProfileComponent } from './profile/profile.component';
-import {ContactComponent} from './contact/contact.component';
 import {ScheduleComponent} from './schedule/schedule.component';
 import { TeachersComponent } from './teachers/teachers.component';
 
@@ -21,7 +20,6 @@ const routes: Routes = [
   {path: 'register-docent', component: DocentRegisterComponent},
   {path: 'register-opleiding-vak', component: OpleidingVakkenComponent},
   {path: 'vakInschrijving', component: VakInschrijvingComponent},
-  {path: 'contact', component: ContactComponent},
   {path: 'homework', component: HomeworkComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'schedule', component: ScheduleComponent},

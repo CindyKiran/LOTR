@@ -31,10 +31,6 @@ export class VakInschrijvingComponent implements OnInit {
     //this.inschrijven();
   }
 
-  // public changeButton(vak : Vak, student:Student){
-  //   if(vak.id == student.ingeschrevenVakken.)
-  // }
-  
   //convert string opleiding to number
   public getUserOpleiding(){
     this.userOpleiding=localStorage.getItem('opleiding');
@@ -96,7 +92,8 @@ export class VakInschrijvingComponent implements OnInit {
    alert("You have signed up!");
    var studentIdString = localStorage.getItem('id');
    var studentIdNumber = Number(studentIdString);
-   this.studentService.inschrijvenVak(studentIdNumber,vak.id).subscribe();
    console.log("student id:" +studentIdNumber + "vak id:" + vak.id)
+   this.studentService.inschrijvenVak(studentIdNumber,vak.id).subscribe();
+   
   }
 }
