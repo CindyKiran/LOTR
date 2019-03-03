@@ -110,8 +110,8 @@ public class StudentController {
     }
     @ResponseBody
     @RequestMapping(value = "/username/{userName}", method = RequestMethod.GET)
-    public List <Student> studentUser (@PathVariable String userName) {
-        return (List)this.studentService.findByUserName(userName);
+    public Iterable <Student> studentUser (@PathVariable String userName) {
+        return studentService.findByUserName(userName);
     }
 
     @ResponseStatus(value = HttpStatus.OK)
@@ -120,34 +120,44 @@ public class StudentController {
         studentService.deleteById(id);
     }
 
-    @PostMapping("uploadFile")
-    public ResponseEntity<?> uploadFile(
-            @RequestParam("file") MultipartFile uploadfile) {
+//    @PostMapping("uploadFile")
+//    public ResponseEntity<?> uploadFile(
+//            @RequestParam("file") MultipartFile uploadfile) {
+//
+//        if (uploadfile.isEmpty()) {
+//            return new ResponseEntity("please select a file!", HttpStatus.NOT_FOUND);
+//        }
+//        try {
+//            saveUploadedFiles(Arrays.asList(uploadfile));
+//        } catch (IOException e) {
+//            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+//        }
+//        return new ResponseEntity("Successfullyt uploaded - " +
+//                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+//    }
 
-        if (uploadfile.isEmpty()) {
-            return new ResponseEntity("please select a file!", HttpStatus.NOT_FOUND);
-        }
-        try {
-            saveUploadedFiles(Arrays.asList(uploadfile));
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
-        }
-        return new ResponseEntity("Successfullyt uploaded - " +
-                uploadfile.getOriginalFilename(), new HttpHeaders(), HttpStatus.OK);
+//    @ResponseBody
+    @ResponseStatus(value = HttpStatus.OK)
+    @PostMapping(value = "uploadFile")
+   public void ResponseEntity(@RequestBody Student student) {
+        studentService.save(student);
     }
-    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
-        for (MultipartFile file : files) {
 
-            if (file.isEmpty()) {
-                continue;
-            }
 
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            System.out.println(file.getOriginalFilename());
-            Files.write(path, bytes);
-        }
-    }
+
+//    private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
+//        for (MultipartFile file : files) {
+//
+//            if (file.isEmpty()) {
+//                continue;
+//            }
+//
+//            byte[] bytes = file.getBytes();
+//            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+//            System.out.println(file.getOriginalFilename());
+//            Files.write(path, bytes);
+//        }
+//    }
     @ResponseBody
     @RequestMapping(value = "/uploadFile/{uploads}" , method = RequestMethod.GET)
     public String getUploadFile(@PathVariable String uploads) {

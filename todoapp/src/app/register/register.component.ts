@@ -51,7 +51,8 @@ export class RegisterComponent implements OnInit {
         if(!userNameTaken){
           console.log("username te gebruiken");
           this.saveData();
-          localStorage.setItem('user', (this.dataForm.controls['userName'].value))
+          localStorage.setItem('user', (this.dataForm.controls['userName'].value));
+          
         }
       })
   }
@@ -102,6 +103,7 @@ export class RegisterComponent implements OnInit {
       this.studentService.saveUser(new Student(0, firstName, lastName, userName, passWord, place, creature, age, new Opleiding(opleidingID, null, null, null), vakken, ingeschrevenVakken, uploads, (new University(0)))).subscribe();
 
       regSuccess = true;
+      alert("Form send");
     }
   }
 }
